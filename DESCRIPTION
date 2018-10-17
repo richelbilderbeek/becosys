@@ -11,6 +11,6 @@ Description: This package offers a uniform interface for multiple
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: PBD, testit
+Imports: mbd, PBD, testit
 Suggests: testthat
 RoxygenNote: 6.1.0

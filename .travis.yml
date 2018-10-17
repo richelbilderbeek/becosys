@@ -3,3 +3,27 @@
 language: R
 sudo: false
 cache: packages
+
+r_packages:
+  - devtools
+  - ggplot2
+  - hunspell
+  - xml2
+
+r_github_packages:
+  - jimhester/covr
+  - jimhester/lintr
+  - Giappo/mbd
+  - MangoTheCat/goodpractice
+  - KlausVigo/phangorn
+  - ropensci/spelling
+
+before_script:
+  - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
+  # proselint
+  - sudo pip install proselint
+
+after_success:
+  - Rscript -e 'lintr::lint_package()'
+  - Rscript -e 'covr::codecov()'
+  - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
