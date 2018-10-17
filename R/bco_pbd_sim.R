@@ -7,7 +7,7 @@
 #'   Either \code{crown_age} or \code{stem_age} must be exclusively set
 #' @export
 #' @author Richel J.C. Bilderbeek
-pbd_sim <- function(
+bco_pbd_sim <- function(
   pbd_params,
   crown_age = NA,
   stem_age = NA
