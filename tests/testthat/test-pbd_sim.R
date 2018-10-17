@@ -1,4 +1,4 @@
-context("pbd_sim_checked")
+context("pbd_sim")
 
 test_that("same as classic interface", {
 
@@ -23,7 +23,7 @@ test_that("same as classic interface", {
   )
 
   set.seed(42)
-  new_sim <- pbd_sim_checked(
+  new_sim <- pbd_sim(
     pbd_params = create_pbd_params(
       erg = erg, eri = eri, scr = scr, sirg = sirg, siri = siri
     ),
@@ -39,28 +39,28 @@ test_that("abuse", {
   crown_age <- 15
 
   expect_error(
-    pbd_sim_checked(
+    pbd_sim(
       pbd_params = "nonsense",
       crown_age = crown_age
     ),
     "'pbd_params' must be a valid PBD parameter set"
   )
   expect_error(
-    pbd_sim_checked(
+    pbd_sim(
       pbd_params = pbd_params,
       crown_age = -12.34
     ),
     "'crown_age' must be positive"
   )
   expect_error(
-    pbd_sim_checked(
+    pbd_sim(
       pbd_params = pbd_params,
       stem_age = -12.34
     ),
     "'stem_age' must be positive"
   )
   expect_error(
-    pbd_sim_checked(
+    pbd_sim(
       pbd_params = pbd_params,
       crown_age = NA,
       stem_age = NA
@@ -68,7 +68,7 @@ test_that("abuse", {
     "'crown_age' or 'stem_age' must be set"
   )
   expect_error(
-    pbd_sim_checked(
+    pbd_sim(
       pbd_params = pbd_params,
       crown_age = 1.2,
       stem_age = 2.3

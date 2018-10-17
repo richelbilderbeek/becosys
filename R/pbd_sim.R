@@ -1,4 +1,4 @@
-#' More intuitive interface of \link{pbd_sim}
+#' Higher-level interface to \link{pbd_sim}
 #' @param pbd_params PBD parameters,
 #'   as created by \link{create_pbd_params}
 #' @param crown_age the crown age.
@@ -7,7 +7,7 @@
 #'   Either \code{crown_age} or \code{stem_age} must be exclusively set
 #' @export
 #' @author Richel J.C. Bilderbeek
-pbd_sim_checked <- function(
+pbd_sim <- function(
   pbd_params,
   crown_age = NA,
   stem_age = NA
