@@ -11,7 +11,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_mbd_params_selector <- function(x) {
-  for (name in get_mbd_param_names()) {
+  for (name in get_mbd_param_names()) { # nolint internal function
     if (!name %in% names(x)) return(FALSE)
   }
   if (!is.logical(x$lambda)) return(FALSE)
