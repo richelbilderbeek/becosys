@@ -38,7 +38,8 @@ bco_pbd_sim <- function(
 
   # pars[1] corresponds to b_1, the speciation-initiation rate of good species
   # pars[2] corresponds to la_1, the speciation-completion rate
-  # pars[3] corresponds to b_2, the speciation-initiation rate of incipient species
+  # pars[3] corresponds to b_2, the speciation-initiation rate
+  #  of incipient species
   # pars[4] corresponds to mu_1, the extinction rate of good species
   # pars[5] corresponds to mu_2, the extinction rate of incipient species
   pars <- c(

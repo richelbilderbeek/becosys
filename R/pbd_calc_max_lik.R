@@ -117,7 +117,8 @@ pbd_calc_max_lik <- function(
   # initparsopt[1] = b (= la_1 in ER2012) = speciation initiation rate
   # initparsopt[2] = mu_1 (= mu_g in ER2012) = extinction rate of good species
   # initparsopt[3] = la_1 (= la_2 in ER2012) = speciation completion rate
-  # initparsopt[4] = mu_2 (= mu_i in ER2012) = extinction rate of incipient species
+  # initparsopt[4] = mu_2 (= mu_i in ER2012) = extinction rate
+  #  of incipient species
   values <- c(
     init_param_values$sirg,
     init_param_values$erg,
