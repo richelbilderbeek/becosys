@@ -5,7 +5,7 @@
 \title{Do an PBD maximum likelihood estimate.}
 \usage{
 pbd_calc_max_lik(branching_times, init_param_values, fixed_params,
-  estimated_params, init_n_species = 2, n_missing_species = 0,
+  opt_params, init_n_species = 2, n_missing_species = 0,
   conditioned_on = "nothing")
 }
 \arguments{
@@ -15,12 +15,16 @@ pbd_calc_max_lik(branching_times, init_param_values, fixed_params,
 as created with \code{create_pbd_params}}
 
 \item{fixed_params}{the parameters that are fixed.
-This can be any subset of
-set {\code{"lapbda"}, \code{"mu"}, \code{"nu"} and \code{"q"}}}
+This is a list of the five parameter names, and a
+boolean to indicate if it is fixed yes/no.
+Use \link{create_pbd_params_selector} to create
+such a list}
 
-\item{estimated_params}{the parameters that are estimated.
-This can be any subset of
-set {\code{"lapbda"}, \code{"mu"}, \code{"nu"} and \code{"q"}}}
+\item{opt_params}{the parameters that are estimated.
+This is a list of the five parameter names, and a
+boolean to indicate if it is optimized yes/no.
+Use \link{create_pbd_params_selector} to create
+such a list}
 
 \item{init_n_species}{the number of species at the moment of the
 first branching time. Can be either one or two:

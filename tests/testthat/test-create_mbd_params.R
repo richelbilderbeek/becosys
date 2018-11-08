@@ -56,4 +56,13 @@ test_that("abuse", {
     ),
     "'q' must be positive"
   )
+  expect_error(
+    create_mbd_params(
+      lambda = 1.0,
+      mu = 1.0,
+      nu = 1.0,
+      q = 12.34
+    ),
+    "'q' must be less or equal to 1.0"
+  )
 })

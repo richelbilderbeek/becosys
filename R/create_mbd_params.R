@@ -21,7 +21,7 @@ create_mbd_params <- function(
     stop("'q' must be positive")
   }
   if (q > 1.0) {
-    stop("'q' cannot exceed unity. It is a probability!")
+    stop("'q' must be less or equal to 1.0")
   }
   list(
     lambda = lambda,
