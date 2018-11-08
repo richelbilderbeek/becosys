@@ -6,7 +6,7 @@ test_that("use", {
   expect_false(is_mbd_params_selector(NULL))
   expect_false(is_mbd_params_selector(NA))
   expect_false(
-    mbd:::is_mbd_params_selector(
+    is_mbd_params_selector(
       list(
         lambda = "nonsense",
         mu = TRUE,
@@ -16,7 +16,7 @@ test_that("use", {
     )
   )
   expect_false(
-    mbd:::is_mbd_params_selector(
+    is_mbd_params_selector(
       list(
         lambda = TRUE,
         mu = "nonsense",
@@ -26,7 +26,7 @@ test_that("use", {
     )
   )
   expect_false(
-    mbd:::is_mbd_params_selector(
+    is_mbd_params_selector(
       list(
         lambda = TRUE,
         mu = TRUE,
@@ -36,7 +36,7 @@ test_that("use", {
     )
   )
   expect_false(
-    mbd:::is_mbd_params_selector(
+    is_mbd_params_selector(
       list(
         lambda = TRUE,
         mu = TRUE,
