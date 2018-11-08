@@ -9,7 +9,7 @@ bco_mbd_sim(mbd_params, crown_age = NA, stem_age = NA,
 }
 \arguments{
 \item{mbd_params}{MBD parameters,
-as created by \link[mbd]{create_mbd_params}}
+as created by \link{create_mbd_params}}
 
 \item{crown_age}{the crown age.
 Either \code{crown_age} or \code{stem_age} must be exclusively set}
