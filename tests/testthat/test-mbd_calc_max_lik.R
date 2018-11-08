@@ -2,7 +2,6 @@ context("mbd_calc_max_lik")
 
 test_that("compare style", {
 
-  skip("No idea how this works again")
   branching_times <- c(1, 2, 3)
   lambda <- 0.3
   mu <- 0.1
@@ -14,9 +13,9 @@ test_that("compare style", {
   set.seed(10)
   out_classic <- mbd::mbd_ml(
     brts = branching_times,
-    true_pars = q,
+    true_pars = c(lambda, mu, nu, q),
     optim_ids = c(FALSE, FALSE, FALSE, TRUE),
-    start_pars = c(lambda, mu, nu),
+    start_pars = c(lambda, mu, nu, q),
     missnumspec = 0,
     cond = 1,
     n_0 = 2,
@@ -37,7 +36,7 @@ test_that("compare style", {
     fixed_params = create_mbd_params_selector(
       lambda = TRUE, mu = TRUE, nu = TRUE
     ),
-    estimated_params = create_mbd_params_selector(q = TRUE),
+    opt_params = create_mbd_params_selector(q = TRUE),
     init_n_species = 2,
     n_missing_species = 0,
     conditioned_on = "non_extinction"
@@ -59,13 +58,13 @@ test_that("can estimate BD trees", {
     mbd_params = mbd_params,
     crown_age = 2,
     conditioned_on = "non_extinction"
-  )$tes
+  )$reconstructed_tree
 
   # Maximum likelihood of BD tree
   ml_est <- mbd_calc_max_lik(
     branching_times = ape::branching.times(phylogeny),
     init_param_values = mbd_params,
-    estimated_params = create_mbd_params_selector(lambda = TRUE, mu = TRUE),
+    opt_params = create_mbd_params_selector(lambda = TRUE, mu = TRUE),
     fixed_params = create_mbd_params_selector(nu = TRUE, q = TRUE),
     init_n_species = 2,
     n_missing_species = 0,
@@ -79,14 +78,14 @@ test_that("abuse", {
 
   mbd_params <- create_mbd_params(0.1, 0.2, 0.3, 0.4)
   fixed_params <- create_mbd_params_selector(lambda = TRUE, mu = TRUE)
-  estimated_params <- create_mbd_params_selector(nu = TRUE, q = TRUE)
+  opt_params <- create_mbd_params_selector(nu = TRUE, q = TRUE)
 
   expect_error(
     mbd_calc_max_lik(
       branching_times = "nonsense",
       init_param_values = mbd_params,
       fixed_params = fixed_params,
-      estimated_params = estimated_params
+      opt_params = opt_params
     ),
     "'branching_times' must be numeric"
   )
@@ -96,7 +95,7 @@ test_that("abuse", {
       branching_times = c(1, 2, -34.56),
       init_param_values = mbd_params,
       fixed_params = fixed_params,
-      estimated_params = estimated_params
+      opt_params = opt_params
     ),
     "All 'branching_times' must be positive"
   )
@@ -106,7 +105,7 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = "nonsense",
       fixed_params = fixed_params,
-      estimated_params = estimated_params
+      opt_params = opt_params
     ),
     paste0(
       "'init_param_values' must be an mbd_params, ",
@@ -118,7 +117,7 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = mbd_params,
       fixed_params = "nonsense",
-      estimated_params = estimated_params
+      opt_params = opt_params
     ),
     paste0("'fixed_params' must be an MBD parameter selector, ",
       "as created by 'create_mbd_params_selector'"
@@ -129,9 +128,9 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = mbd_params,
       fixed_params = fixed_params,
-      estimated_params = "nonsense"
+      opt_params = "nonsense"
     ),
-    paste0("'estimated_params' must be an MBD parameter selector, ",
+    paste0("'opt_params' must be an MBD parameter selector, ",
       "as created by 'create_mbd_params_selector'"
     )
   )
@@ -140,10 +139,10 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = mbd_params,
       fixed_params = create_mbd_params_selector(TRUE, TRUE, TRUE, TRUE),
-      estimated_params = create_mbd_params_selector(TRUE, TRUE, TRUE, TRUE)
+      opt_params = create_mbd_params_selector(TRUE, TRUE, TRUE, TRUE)
     ),
     paste0(
-      "'fixed_params' and 'estimated_params' together must select each ",
+      "'fixed_params' and 'opt_params' together must select each ",
       "of the MBD parameters exactly once"
     )
   )
@@ -152,7 +151,7 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = mbd_params,
       fixed_params = fixed_params,
-      estimated_params = estimated_params,
+      opt_params = opt_params,
       init_n_species = 0
     ),
     "'init_n_species' must be 1 or 2"
@@ -162,7 +161,7 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = mbd_params,
       fixed_params = fixed_params,
-      estimated_params = estimated_params,
+      opt_params = opt_params,
       n_missing_species = -12345
     ),
     "'n_missing_species' must be positive"
@@ -172,7 +171,7 @@ test_that("abuse", {
       branching_times = c(1, 2, 3),
       init_param_values = mbd_params,
       fixed_params = fixed_params,
-      estimated_params = estimated_params,
+      opt_params = opt_params,
       conditioned_on = "nonsense"
     ),
     "'conditioned_on' must be either 'nothing' or 'non_extinction'"
