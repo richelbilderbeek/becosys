@@ -5,12 +5,20 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(erg, eri, scr, sirg, siri)
+default_params_doc(erg, eri, lambda, mu, nu, q, scr, sirg, siri)
 }
 \arguments{
 \item{erg}{extinction rate of a good species}
 
 \item{eri}{extinction rate of an incipient species}
+
+\item{lambda}{the sympatric speciation rate}
+
+\item{mu}{the extinction rate}
+
+\item{nu}{the multiple allopatric speciation trigger rate}
+
+\item{q}{the single-lineage speciation probability at a triggered event}
 
 \item{scr}{speciation completion rate}
 
