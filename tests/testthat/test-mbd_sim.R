@@ -10,9 +10,9 @@ test_that("same as classic interface", {
   crown_age <- 1
 
   set.seed(42)
-  classic_sim <- mbd_sim(
+  classic_sim <- mbd::mbd_sim(
     pars = sim_pars,
-    soc = 2,
+    n_0 = 2,
     age = crown_age,
     cond = 1
   )

@@ -1,4 +1,4 @@
-#' More intuitive interface of \link{mbd_sim}
+#' More intuitive interface of \link[mbd]{mbd_sim}
 #' @param mbd_params MBD parameters,
 #'   as created by \link{create_mbd_params}
 #' @param crown_age the crown age.
@@ -38,19 +38,19 @@ mbd_sim <- function(
   }
   # Data transformation
   pars <- as.numeric(unlist(mbd_params))
-  soc <- 1
+  n_0 <- 1
   age <- stem_age
   if (!is.na(crown_age)) {
-    soc <- 2
+    n_0 <- 2
     age <- crown_age
   }
   cond <- 0
   if (conditioned_on == "non_extinction") {
     cond <- 1
   }
-  mbd_sim(
+  mbd::mbd_sim(
     pars = pars,
-    soc = soc,
+    n_0 = n_0,
     age = age,
     cond = cond
   )

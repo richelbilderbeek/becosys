@@ -1,4 +1,4 @@
-#' Conformized name of \link[mbd]{mbd_sim_checked}
+#' Conformized name of \link{mbd_sim}
 #' @param mbd_params MBD parameters,
 #'   as created by \link[mbd]{create_mbd_params}
 #' @param crown_age the crown age.
@@ -18,7 +18,7 @@ bco_mbd_sim <- function(
   stem_age = NA,
   conditioned_on = "nothing"
 ) {
-  mbd::mbd_sim_checked(
+  mbd_sim(
     mbd_params = mbd_params,
     crown_age = crown_age,
     stem_age = stem_age,

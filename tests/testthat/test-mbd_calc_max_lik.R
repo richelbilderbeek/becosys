@@ -55,7 +55,7 @@ test_that("can estimate BD trees", {
   nu <- 0.0
   q <- 0.0
   mbd_params <- create_mbd_params(lambda = lambda, mu = mu, nu = nu, q = q)
-  phylogeny <- mbd_sim_checked(
+  phylogeny <- mbd_sim(
     mbd_params = mbd_params,
     crown_age = 2,
     conditioned_on = "non_extinction"
