@@ -4,7 +4,7 @@
 \alias{create_mbd_params}
 \title{Create the MBD parameters}
 \usage{
-create_mbd_params(lambda = lambda, mu = mu, nu = nu, q = q)
+create_mbd_params(lambda, mu, nu, q)
 }
 \arguments{
 \item{lambda}{the sympatric speciation rate}

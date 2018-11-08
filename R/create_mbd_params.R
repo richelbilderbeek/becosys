@@ -3,10 +3,10 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mbd_params <- function(
-    lambda = lambda,
-    mu = mu,
-    nu = nu,
-    q = q
+  lambda,
+  mu,
+  nu,
+  q
 ) {
   if (lambda < 0.0) {
     stop("'lambda' must be positive")
