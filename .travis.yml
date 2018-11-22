@@ -14,8 +14,9 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - Giappo/mbd
-  - MangoTheCat/goodpractice
   - KlausVigo/phangorn
+  - MangoTheCat/goodpractice
+  - richelbilderbeek/PBD/PBD
   - ropensci/spelling
 
 before_script:
