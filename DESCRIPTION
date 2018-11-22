@@ -1,6 +1,6 @@
 Package: becosys
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Unified Interface To Phylogenetics Models Of Speciation
 Version: 0.1.0
 Author: Richel J.C. Bilderbeek
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
@@ -11,7 +11,11 @@ Description: This package offers a uniform interface for multiple
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: mbd, PBD, testit
+Imports: 
+  mbd, 
+  PBD, 
+  Rdpack,
+  testit
 Suggests: testthat
 RoxygenNote: 6.1.1
 URL: https://github.com/richelbilderbeek/becosys
