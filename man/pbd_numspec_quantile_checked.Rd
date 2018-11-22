@@ -13,12 +13,21 @@ pbd_numspec_quantile_checked(erg, eri, scr, sir, stem_age = NULL,
 \item{eri}{extinction rate of an incipient species}
 
 \item{scr}{speciation completion rate}
+
+\item{sir}{speciation initiation rate}
+
+\item{stem_age}{the stem age, in time units ago}
+
+\item{crown_age}{the crown age, in time units ago}
+
+\item{quantile}{a quantile, a value between (and including) zero
+to (and including) one.}
 }
 \description{
 Checked version of \code{\link[PBD]{pbd_numspec_quantile}}
 }
 \note{
-uses equation 6 from \insertCite{etienne2014;textual}{raket}
+uses equation 6 from \insertCite{etienne2014;textual}{becosys}
 }
 \references{
 \insertAllCited{}

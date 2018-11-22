@@ -1,5 +1,5 @@
 #' Checked version of \code{\link[PBD]{pbd_numspec_quantile}}
-#' @note uses equation 6 from \insertCite{etienne2014;textual}{raket}
+#' @note uses equation 6 from \insertCite{etienne2014;textual}{becosys}
 #' @inheritParams default_params_doc
 #' @references \insertAllCited{}
 #' @export
