@@ -16,7 +16,8 @@ Imports:
   PBD, 
   Rdpack,
   testit
-Suggests: 
+Suggests:
+  ggplot2, 
   knitr,
   testthat
 RoxygenNote: 6.1.1
