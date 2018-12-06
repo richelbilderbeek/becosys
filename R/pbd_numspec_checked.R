@@ -54,10 +54,18 @@ pbd_numspec_mean_checked <- function(
   if (any(scrs < 0.0)) stop("All 'scrs' must be positive")
   if (any(eris < 0.0)) stop("All 'eris' must be positive")
   if (any(crown_ages < 0.0)) stop("All 'crown_ages' must be positive")
-  if (length(ergs) != length(eris)) stop("ergs' and 'eris' must have same length")
-  if (length(ergs) != length(scrs)) stop("ergs' and 'scrs' must have same length")
-  if (length(ergs) != length(sirs)) stop("ergs' and 'sirs' must have same length")
-  if (length(ergs) != length(crown_ages)) stop("ergs' and 'crown_ages' must have same length")
+  if (length(ergs) != length(eris)) {
+    stop("ergs' and 'eris' must have same length")
+  }
+  if (length(ergs) != length(scrs)) {
+    stop("ergs' and 'scrs' must have same length")
+  }
+  if (length(ergs) != length(sirs)) {
+    stop("ergs' and 'sirs' must have same length")
+  }
+  if (length(ergs) != length(crown_ages)) {
+    stop("ergs' and 'crown_ages' must have same length")
+  }
   n <- length(ergs)
   ns <- rep(NA, n)
   for (i in seq_along(ergs)) {
@@ -83,7 +91,8 @@ pbd_numspec_mean_checked <- function(
 #' @seealso
 #'   \code{\link{pbd_numspec_mean}} provides for setting a time-dependence
 #'   in the parameters and/or specify a stem age.
-#'   \code{\link{pbd_numspec_median_checked}} calculates the median number of species.
+#'   \code{\link{pbd_numspec_median_checked}} calculates the median
+#'   number of species.
 #' @examples
 #'  mean_n_species <- pbd_numspec_mean_checked_impl(
 #'    erg = 0.12,
@@ -124,7 +133,8 @@ pbd_numspec_mean_checked_impl <- function(
 #' @seealso
 #'   \code{\link{pbd_numspec_median}} provides for setting a time-dependence
 #'   in the parameters and/or specify a stem age.
-#'   \code{\link{pbd_numspec_mean_checked}} calculates the mean number of species.
+#'   \code{\link{pbd_numspec_mean_checked}} calculates the
+#'   mean number of species.
 #' @examples
 #'   median_n_species <- pbd_numspec_median_checked(
 #'     erg = 1.2,

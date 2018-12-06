@@ -53,11 +53,11 @@ test_that("can estimate BD trees", {
   skip("Cannot do ML estimation on BD trees, Issue #4, #4")
   # Simulate a BD tree
   set.seed(12)
-  laPBDa <- 0.3
+  lambda <- 0.3
   mu <- 0.1
   nu <- 0.0
   q <- 0.0
-  pbd_params <- create_pbd_params(laPBDa = laPBDa, mu = mu, nu = nu, q = q)
+  pbd_params <- create_pbd_params(lambda = lambda, mu = mu, nu = nu, q = q)
   phylogeny <- pbd_sim(
     pbd_params = pbd_params,
     crown_age = 2,
@@ -68,14 +68,14 @@ test_that("can estimate BD trees", {
   ml_est <- pbd_calc_max_lik(
     branching_times = ape::branching.times(phylogeny),
     init_param_values = pbd_params,
-    opt_params = create_pbd_params_selector(laPBDa = TRUE, mu = TRUE),
+    opt_params = create_pbd_params_selector(lambda = TRUE, mu = TRUE),
     fixed_params = create_pbd_params_selector(nu = TRUE, q = TRUE),
     init_n_species = 2,
     n_missing_species = 0,
     conditioned_on = "non_extinction"
   )
   ml_est
-  expect_true(ml_est$laPBDa >= 0)
+  expect_true(ml_est$lambda >= 0)
 })
 
 test_that("abuse", {
