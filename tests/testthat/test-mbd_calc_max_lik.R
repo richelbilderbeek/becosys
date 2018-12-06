@@ -17,7 +17,6 @@ test_that("compare style", {
     true_pars = c(lambda, mu, nu, q),
     optim_ids = c(FALSE, FALSE, FALSE, TRUE),
     start_pars = c(lambda, mu, nu, q),
-    missnumspec = 0,
     cond = 1,
     n_0 = 2,
     verbose = TRUE
@@ -39,7 +38,6 @@ test_that("compare style", {
     ),
     opt_params = create_mbd_params_selector(q = TRUE),
     init_n_species = 2,
-    n_missing_species = 0,
     conditioned_on = "non_extinction"
   )
   expect_equal(out_classic, out_new)
@@ -68,7 +66,6 @@ test_that("can estimate BD trees", {
     opt_params = create_mbd_params_selector(lambda = TRUE, mu = TRUE),
     fixed_params = create_mbd_params_selector(nu = TRUE, q = TRUE),
     init_n_species = 2,
-    n_missing_species = 0,
     conditioned_on = "non_extinction"
   )
   ml_est
@@ -156,16 +153,6 @@ test_that("abuse", {
       init_n_species = 0
     ),
     "'init_n_species' must be 1 or 2"
-  )
-  expect_error(
-    mbd_calc_max_lik(
-      branching_times = c(1, 2, 3),
-      init_param_values = mbd_params,
-      fixed_params = fixed_params,
-      opt_params = opt_params,
-      n_missing_species = -12345
-    ),
-    "'n_missing_species' must be positive"
   )
   expect_error(
     mbd_calc_max_lik(

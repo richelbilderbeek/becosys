@@ -18,7 +18,6 @@
 #'     \item 1: stem
 #'     \item 2: crown
 #'   }
-#' @param n_missing_species the number of species missing
 #' @param conditioned_on on what must be the likelihood estimation be
 #'   conditioned:
 #'   \itemize{
@@ -35,7 +34,6 @@ mbd_calc_max_lik <- function(
   fixed_params,
   opt_params,
   init_n_species = 2,
-  n_missing_species = 0,
   conditioned_on = "nothing"
 ) {
   if (!is.numeric(branching_times)) {
@@ -78,9 +76,6 @@ mbd_calc_max_lik <- function(
   if (init_n_species != 1 && init_n_species != 2) {
     stop("'init_n_species' must be 1 or 2")
   }
-  if (n_missing_species < 0) {
-    stop("'n_missing_species' must be positive")
-  }
   if (!conditioned_on %in% c("nothing", "non_extinction")) {
     stop("'conditioned_on' must be either 'nothing' or 'non_extinction'")
   }
@@ -112,7 +107,6 @@ mbd_calc_max_lik <- function(
     start_pars = pars,
     true_pars = pars,
     optim_ids = is_optimizeds,
-    missnumspec = n_missing_species,
     cond = conditioned_on_code,
     n_0 = init_n_species,
     verbose = FALSE

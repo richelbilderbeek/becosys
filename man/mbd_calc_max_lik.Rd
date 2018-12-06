@@ -5,8 +5,7 @@
 \title{Do an MBD maximum likelihood estimate.}
 \usage{
 mbd_calc_max_lik(branching_times, init_param_values, fixed_params,
-  opt_params, init_n_species = 2, n_missing_species = 0,
-  conditioned_on = "nothing")
+  opt_params, init_n_species = 2, conditioned_on = "nothing")
 }
 \arguments{
 \item{branching_times}{the branching times of the phylogeny}
@@ -32,8 +31,6 @@ first branching time. Can be either one or two:
   \item 1: stem
   \item 2: crown
 }}
-
-\item{n_missing_species}{the number of species missing}
 
 \item{conditioned_on}{on what must be the likelihood estimation be
 conditioned:
