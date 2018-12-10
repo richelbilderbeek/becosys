@@ -5,8 +5,8 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(crown_age, erg, eri, lambda, mu, nu, q, quantile, scr,
-  sir, sirg, siri, stem_age)
+default_params_doc(crown_age, erg, eri, ext_rate, lambda, mu, nu, q,
+  quantile, scr, sir, sirg, siri, spec_rate, stem_age)
 }
 \arguments{
 \item{crown_age}{the crown age, in time units ago}
@@ -14,6 +14,8 @@ default_params_doc(crown_age, erg, eri, lambda, mu, nu, q, quantile, scr,
 \item{erg}{extinction rate of a good species}
 
 \item{eri}{extinction rate of an incipient species}
+
+\item{ext_rate}{per-lineage extinction rate}
 
 \item{lambda}{the sympatric speciation rate}
 
@@ -33,6 +35,8 @@ to (and including) one.}
 \item{sirg}{speciation initiation rate of a good species}
 
 \item{siri}{speciation initiation rate of an incipient species}
+
+\item{spec_rate}{per-lineage speciation rate}
 
 \item{stem_age}{the stem age, in time units ago}
 }

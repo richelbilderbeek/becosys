@@ -6,6 +6,11 @@
 \usage{
 create_bd_params(ext_rate, spec_rate)
 }
+\arguments{
+\item{ext_rate}{per-lineage extinction rate}
+
+\item{spec_rate}{per-lineage speciation rate}
+}
 \description{
 Create the BD parameters
 }
