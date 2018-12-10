@@ -2,10 +2,13 @@
 
 export(bco_mbd_sim)
 export(bco_pbd_sim)
+export(bd_sim)
+export(create_bd_params)
 export(create_mbd_params)
 export(create_mbd_params_selector)
 export(create_pbd_params)
 export(create_pbd_params_selector)
+export(get_bd_param_names)
 export(get_mbd_param_names)
 export(get_pbd_param_names)
 export(is_mbd_params_selector)

@@ -42,7 +42,8 @@ than \code{\link{pbd_numspec_median}}.
 \seealso{
 \code{\link{pbd_numspec_median}} provides for setting a time-dependence
   in the parameters and/or specify a stem age.
-  \code{\link{pbd_numspec_mean_checked}} calculates the mean number of species.
+  \code{\link{pbd_numspec_mean_checked}} calculates the
+  mean number of species.
 }
 \author{
 Richel J.C. Bilderbeek
