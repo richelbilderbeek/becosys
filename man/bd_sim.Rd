@@ -2,7 +2,7 @@
 % Please edit documentation in R/bd_sim.R
 \name{bd_sim}
 \alias{bd_sim}
-\title{More intuitive interface of \link[bd]{bd_sim}}
+\title{Simulate a constant-rate birth-death process.}
 \usage{
 bd_sim(bd_params, crown_age = NA, stem_age = NA,
   conditioned_on = "nothing")
@@ -24,7 +24,7 @@ Either \code{crown_age} or \code{stem_age} must be exclusively set}
 }}
 }
 \description{
-More intuitive interface of \link[bd]{bd_sim}
+Simulate a constant-rate birth-death process.
 }
 \author{
 Richel J.C. Bilderbeek

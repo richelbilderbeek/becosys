@@ -1,4 +1,4 @@
-#' More intuitive interface of \link[bd]{bd_sim}
+#' Simulate a constant-rate birth-death process.
 #' @param bd_params BD parameters,
 #'   as created by \link{create_bd_params}
 #' @param crown_age the crown age.
