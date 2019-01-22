@@ -5,6 +5,9 @@
 #'   Either \code{crown_age} or \code{stem_age} must be exclusively set
 #' @param stem_age the stem age
 #'   Either \code{crown_age} or \code{stem_age} must be exclusively set
+#' @param add_shortest_and_longest if TRUE, the result of this
+#'   function will also include the species trees obtained
+#'   by sampling with 'shortest' and 'longest'
 #' @export
 #' @author Richel J.C. Bilderbeek
 bco_pbd_sim <- function(

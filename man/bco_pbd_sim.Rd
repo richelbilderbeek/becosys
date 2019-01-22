@@ -4,7 +4,7 @@
 \alias{bco_pbd_sim}
 \title{Higher-level interface to \link{pbd_sim}}
 \usage{
-bco_pbd_sim(pbd_params, crown_age = NA, stem_age = NA,
+bco_pbd_sim(pbd_params, crown_age = NULL, stem_age = NULL,
   add_shortest_and_longest = FALSE)
 }
 \arguments{
@@ -16,6 +16,10 @@ Either \code{crown_age} or \code{stem_age} must be exclusively set}
 
 \item{stem_age}{the stem age
 Either \code{crown_age} or \code{stem_age} must be exclusively set}
+
+\item{add_shortest_and_longest}{if TRUE, the result of this
+function will also include the species trees obtained
+by sampling with 'shortest' and 'longest'}
 }
 \description{
 Higher-level interface to \link{pbd_sim}
