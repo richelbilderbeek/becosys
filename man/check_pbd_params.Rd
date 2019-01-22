@@ -6,6 +6,10 @@
 \usage{
 check_pbd_params(pbd_params)
 }
+\arguments{
+\item{pbd_params}{parameter set for the PBD model,
+as can be created by \link{create_pbd_params}}
+}
 \value{
 nothing.
 }

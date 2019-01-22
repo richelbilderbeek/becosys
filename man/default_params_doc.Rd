@@ -5,8 +5,8 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(crown_age, erg, eri, ext_rate, lambda, mu, nu, q,
-  quantile, scr, sir, sirg, siri, spec_rate, stem_age)
+default_params_doc(crown_age, erg, eri, ext_rate, lambda, mu, nu,
+  pbd_params, q, quantile, scr, sir, sirg, siri, spec_rate, stem_age)
 }
 \arguments{
 \item{crown_age}{the crown age, in time units ago}
@@ -22,6 +22,9 @@ default_params_doc(crown_age, erg, eri, ext_rate, lambda, mu, nu, q,
 \item{mu}{the extinction rate}
 
 \item{nu}{the multiple allopatric speciation trigger rate}
+
+\item{pbd_params}{parameter set for the PBD model,
+as can be created by \link{create_pbd_params}}
 
 \item{q}{the single-lineage speciation probability at a triggered event}
 

@@ -7,6 +7,8 @@
 #' @param lambda the sympatric speciation rate
 #' @param mu the extinction rate
 #' @param nu the multiple allopatric speciation trigger rate
+#' @param pbd_params parameter set for the PBD model,
+#'   as can be created by \link{create_pbd_params}
 #' @param q the single-lineage speciation probability at a triggered event
 #' @param quantile a quantile, a value between (and including) zero
 #'   to (and including) one.
@@ -29,6 +31,7 @@ default_params_doc <- function(
   lambda,
   mu,
   nu,
+  pbd_params,
   q,
   quantile,
   scr,
