@@ -4,6 +4,7 @@
 #'   its an PBD parameter set
 #' @return TRUE if yes, else FALSE
 #' @author Richel J.C. Bilderbeek
+#' @export
 is_pbd_params <- function(x) {
   all(becosys::get_pbd_param_names() %in% names(x))
 }
