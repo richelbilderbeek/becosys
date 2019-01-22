@@ -16,6 +16,6 @@ create_pbd_params <- function(
     sirg = sirg,
     siri = siri
   )
-  check_pbd_params(pbd_params)
+  check_pbd_params(pbd_params) # nolint becosys function
   pbd_params
 }

@@ -16,4 +16,3 @@ test_that("use", {
   expect_equal(sirg, params$sirg)
   expect_equal(siri, params$siri)
 })
-
