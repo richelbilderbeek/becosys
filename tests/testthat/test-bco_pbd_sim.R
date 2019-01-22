@@ -63,8 +63,8 @@ test_that("abuse", {
   expect_error(
     bco_pbd_sim(
       pbd_params = pbd_params,
-      crown_age = NA,
-      stem_age = NA
+      crown_age = NULL,
+      stem_age = NULL
     ),
     "'crown_age' or 'stem_age' must be set"
   )

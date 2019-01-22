@@ -9,50 +9,34 @@
 #' @author Richel J.C. Bilderbeek
 bco_pbd_sim <- function(
   pbd_params,
-  crown_age = NA,
-  stem_age = NA
+  crown_age = NULL,
+  stem_age = NULL,
+  add_shortest_and_longest = FALSE
 ) {
   if (!is_pbd_params(pbd_params)) {
     stop("'pbd_params' must be a valid PBD parameter set")
   }
-  if (!is.na(crown_age) && crown_age < 0.0) {
+  check_pbd_params(pbd_params)
+  if (!is.null(crown_age) && crown_age < 0.0) {
     stop("'crown_age' must be positive")
   }
-  if (!is.na(stem_age) && stem_age < 0.0) {
+  if (!is.null(stem_age) && stem_age < 0.0) {
     stop("'stem_age' must be positive")
   }
-  if (is.na(crown_age) && is.na(stem_age)) {
+  if (is.null(crown_age) && is.null(stem_age)) {
     stop("'crown_age' or 'stem_age' must be set")
   }
-  if (!is.na(crown_age) && !is.na(stem_age)) {
+  if (!is.null(crown_age) && !is.null(stem_age)) {
     stop("'crown_age' or 'stem_age' must be set exclusively")
   }
-  # Data transformation
-  pars <- as.numeric(unlist(pbd_params))
-  soc <- 1
-  age <- stem_age
-  if (!is.na(crown_age)) {
-    soc <- 2
-    age <- crown_age
-  }
-
-  # pars[1] corresponds to b_1, the speciation-initiation rate of good species
-  # pars[2] corresponds to la_1, the speciation-completion rate
-  # pars[3] corresponds to b_2, the speciation-initiation rate
-  #  of incipient species
-  # pars[4] corresponds to mu_1, the extinction rate of good species
-  # pars[5] corresponds to mu_2, the extinction rate of incipient species
-  pars <- c(
-    pbd_params$sirg,
-    pbd_params$scr,
-    pbd_params$siri,
-    pbd_params$erg,
-    pbd_params$eri
-  )
-
-  PBD::pbd_sim(
-    pars = pars,
-    soc = soc,
-    age = age
+  PBD::pbd_sim_checked(
+    erg = pbd_params$erg,
+    eri = pbd_params$eri,
+    scr = pbd_params$scr,
+    sirg = pbd_params$sirg,
+    siri = pbd_params$siri,
+    stem_age = stem_age,
+    crown_age = crown_age,
+    add_shortest_and_longest = add_shortest_and_longest
   )
 }
