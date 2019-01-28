@@ -6,6 +6,10 @@
 \usage{
 check_mbd_params(mbd_params)
 }
+\arguments{
+\item{mbd_params}{parameter set for the MBD model,
+as can be created by \link{create_mbd_params}}
+}
 \value{
 nothing.
 }
