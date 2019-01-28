@@ -8,25 +8,12 @@ create_mbd_params <- function(
   nu,
   q
 ) {
-  if (lambda < 0.0) {
-    stop("'lambda' must be positive")
-  }
-  if (mu < 0.0) {
-    stop("'mu' must be positive")
-  }
-  if (nu < 0.0) {
-    stop("'nu' must be positive")
-  }
-  if (q < 0.0) {
-    stop("'q' must be positive")
-  }
-  if (q > 1.0) {
-    stop("'q' must be less or equal to 1.0")
-  }
-  list(
+  mbd_params <- list(
     lambda = lambda,
     mu = mu,
     nu = nu,
     q = q
   )
+  check_mbd_params(mbd_params)
+  mbd_params
 }
