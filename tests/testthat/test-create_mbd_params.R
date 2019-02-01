@@ -20,6 +20,7 @@ test_that("use", {
 
 test_that("abuse", {
 
+  # Just check one, others are checked by check_mbd_params
   expect_error(
     create_mbd_params(
       lambda = -12.34,
@@ -28,41 +29,5 @@ test_that("abuse", {
       q = 1.0
     ),
     "'lambda' must be positive"
-  )
-  expect_error(
-    create_mbd_params(
-      lambda = 1.0,
-      mu = -12.34,
-      nu = 1.0,
-      q = 1.0
-    ),
-    "'mu' must be positive"
-  )
-  expect_error(
-    create_mbd_params(
-      lambda = 1.0,
-      mu = 1.0,
-      nu = -12.34,
-      q = 1.0
-    ),
-    "'nu' must be positive"
-  )
-  expect_error(
-    create_mbd_params(
-      lambda = 1.0,
-      mu = 1.0,
-      nu = 1.0,
-      q = -12.34
-    ),
-    "'q' must be positive"
-  )
-  expect_error(
-    create_mbd_params(
-      lambda = 1.0,
-      mu = 1.0,
-      nu = 1.0,
-      q = 12.34
-    ),
-    "'q' must be less or equal to 1.0"
   )
 })

@@ -5,6 +5,8 @@
 #' @param eri extinction rate of an incipient species
 #' @param ext_rate per-lineage extinction rate
 #' @param lambda the sympatric speciation rate
+#' @param mbd_params parameter set for the MBD model,
+#'   as can be created by \link{create_mbd_params}
 #' @param mu the extinction rate
 #' @param nu the multiple allopatric speciation trigger rate
 #' @param pbd_params parameter set for the PBD model,
@@ -29,6 +31,7 @@ default_params_doc <- function(
   eri,
   ext_rate,
   lambda,
+  mbd_params,
   mu,
   nu,
   pbd_params,
