@@ -36,6 +36,7 @@ mbd_sim <- function(
   if (!conditioned_on %in% c("nothing", "non_extinction")) {
     stop("'conditioned_on' must be either 'nothing' or 'non_extinction'")
   }
+
   # Data transformation
   pars <- as.numeric(unlist(mbd_params))
   n_0 <- 1
