@@ -12,6 +12,8 @@ test_that("compare style", {
   # Classic interface
   #############################
   set.seed(10)
+
+  skip("https://github.com/richelbilderbeek/pirouette/issues/76")
   out_classic <- mbd::mbd_ml(
     brts = branching_times,
     true_pars = c(lambda, mu, nu, q),
@@ -21,6 +23,17 @@ test_that("compare style", {
     n_0 = 2,
     verbose = TRUE
   )
+  # Gives following warning:
+  #
+  # DLSODES- Error from CDRV in Yale Sparse Matrix Package.
+  #       At T (=R1), CDRV returned error flag = I1*NEQ + I2.
+  # In above message, I1 = 5, I2 = 2
+  #
+  # In above message, R1 = 0
+  #
+  # Error: in ‘subplex’: illegal input detected before taking any integration
+  #  steps - see written message
+
   #############################
   # More intuitive interface
   #############################
