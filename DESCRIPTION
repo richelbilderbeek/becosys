@@ -17,6 +17,7 @@ Imports:
   Rdpack,
   testit
 Suggests:
+  ape,
   ggplot2, 
   knitr,
   testthat
