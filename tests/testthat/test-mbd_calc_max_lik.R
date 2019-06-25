@@ -20,7 +20,7 @@ test_that("compare style", {
     start_pars = c(lambda, mu, nu, q),
     cond = 1,
     n_0 = 2,
-    verbose = TRUE
+    verbose = FALSE
   )
 
   #############################
