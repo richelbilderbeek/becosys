@@ -16,7 +16,8 @@ pbd_numspec_mean_checked(ergs, eris, scrs, sirs, crown_ages)
 \item{scrs}{one or more speciation completion rates}
 
 \item{sirs}{one or more speciation initiation rates.
-This function assumes the speciation initiation rates of good and incipient species are equal.}
+This function assumes the speciation initiation rates of
+good and incipient species are equal.}
 
 \item{crown_ages}{one or more crown ages}
 }
@@ -60,7 +61,8 @@ than \code{\link{pbd_numspec_mean}}.
 \seealso{
 \code{\link{pbd_numspec_mean}} provides for setting a time-dependence
   in the parameters and/or specify a stem age.
-  \code{\link{pbd_numspec_median_checked}} calculates the median number of species.
+  \code{\link{pbd_numspec_median_checked}} calculates the median
+  number of species.
 }
 \author{
 Richel J.C. Bilderbeek

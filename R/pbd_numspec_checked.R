@@ -2,7 +2,8 @@
 #' diversification. This is a checked version with a more explicit interface
 #' than \code{\link{pbd_numspec_mean}}.
 #' @param sirs one or more speciation initiation rates.
-#'   This function assumes the speciation initiation rates of good and incipient species are equal.
+#'   This function assumes the speciation initiation rates of
+#'   good and incipient species are equal.
 #' @param ergs one or more good species' extinction rates
 #' @param scrs one or more speciation completion rates
 #' @param eris one or more incipient species' extinction rates
@@ -11,7 +12,8 @@
 #' @seealso
 #'   \code{\link{pbd_numspec_mean}} provides for setting a time-dependence
 #'   in the parameters and/or specify a stem age.
-#'   \code{\link{pbd_numspec_median_checked}} calculates the median number of species.
+#'   \code{\link{pbd_numspec_median_checked}} calculates the median
+#'   number of species.
 #' @examples
 #'   n <- pbd_numspec_mean_checked(
 #'     ergs = 0.1,
