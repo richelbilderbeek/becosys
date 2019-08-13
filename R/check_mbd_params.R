@@ -8,6 +8,21 @@
 check_mbd_params <- function(
   mbd_params
 ) {
+    argument_names <- c(
+    "lambda",
+    "mu",
+    "nu",
+    "q"
+  )
+  for (arg_name in argument_names) {
+    if (!arg_name %in% names(mbd_params)) {
+      stop(
+        "'", arg_name, "' must be an element of an 'mbd_params'.\n",
+        "Tip: use 'create_mbd_params'"
+      )
+    }
+  }
+
   if (mbd_params$lambda < 0.0) {
     stop("'lambda' must be positive")
   }

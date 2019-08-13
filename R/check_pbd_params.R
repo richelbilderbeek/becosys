@@ -8,6 +8,22 @@
 check_pbd_params <- function(
   pbd_params
 ) {
+  argument_names <- c(
+    "erg",
+    "eri",
+    "scr",
+    "sirg",
+    "siri"
+  )
+  for (arg_name in argument_names) {
+    if (!arg_name %in% names(pbd_params)) {
+      stop(
+        "'", arg_name, "' must be an element of an 'pbd_params'.\n",
+        "Tip: use 'create_pbd_params'"
+      )
+    }
+  }
+
   if (pbd_params$erg < 0.0) {
     stop("'erg' must be positive")
   }
