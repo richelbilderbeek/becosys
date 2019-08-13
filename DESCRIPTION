@@ -12,11 +12,11 @@ License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    becosys (>=1.2),
+    becosys,
     mbd, 
     PBD (>= 1.5), 
     Rdpack,
-    ribir,
+    ribir (>= 1.2),
     testit
 Suggests:
     ape,
