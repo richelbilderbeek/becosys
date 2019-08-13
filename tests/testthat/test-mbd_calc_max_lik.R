@@ -47,6 +47,8 @@ test_that("compare style", {
 
 test_that("can estimate BD trees", {
 
+  if (!beastier::is_on_travis()) return()
+
   # Simulate a BD tree
   set.seed(12)
   lambda <- 0.3
