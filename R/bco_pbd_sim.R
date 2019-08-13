@@ -32,7 +32,7 @@ bco_pbd_sim <- function(
   if (!is.null(crown_age) && !is.null(stem_age)) {
     stop("'crown_age' or 'stem_age' must be set exclusively")
   }
-  PBD::pbd_sim_checked(
+  pbd_sim_checked(
     erg = pbd_params$erg,
     eri = pbd_params$eri,
     scr = pbd_params$scr,
