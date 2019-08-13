@@ -11,12 +11,13 @@ r_packages:
   - xml2
 
 r_github_packages:
+  - Giappo/mbd
   - jimhester/covr
   - jimhester/lintr
-  - Giappo/mbd
   - KlausVigo/phangorn
   - MangoTheCat/goodpractice
   - ropensci/spelling
+  - rsetienne/PBD/PBD
 
 before_install:
   - sudo add-apt-repository -y ppa:opencpu/imagemagick
