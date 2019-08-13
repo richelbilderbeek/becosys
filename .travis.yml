@@ -16,7 +16,6 @@ r_github_packages:
   - Giappo/mbd
   - KlausVigo/phangorn
   - MangoTheCat/goodpractice
-  - richelbilderbeek/PBD/PBD
   - ropensci/spelling
 
 before_install:
