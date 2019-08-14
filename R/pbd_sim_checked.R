@@ -10,6 +10,8 @@
 #'   the simulation is aborted and removed.
 #' @param add_shortest_and_longest Gives the output of the new samplemethods
 #'   'shortest' and 'longest'.
+#' @return the output of a PBD sim,
+#' as can be checked by \link{check_pbd_sim_out}
 #' @export
 pbd_sim_checked <- function(
   erg,

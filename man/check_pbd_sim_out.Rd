@@ -6,11 +6,17 @@
 \usage{
 check_pbd_sim_out(pbd_sim_out)
 }
+\arguments{
+\item{pbd_sim_out}{the result of a call to \link{pbd_sim_checked}}
+}
 \value{
 nothing.
 }
 \description{
 Will \link{stop} if invalid, will do nothing otherwise
+}
+\seealso{
+Use \link{pbd_sim_checked} to run a PBD simulation
 }
 \author{
 Richel J.C. Bilderbeek

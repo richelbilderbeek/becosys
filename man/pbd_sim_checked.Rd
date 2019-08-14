@@ -29,6 +29,10 @@ the simulation is aborted and removed.}
 \item{add_shortest_and_longest}{Gives the output of the new samplemethods
 'shortest' and 'longest'.}
 }
+\value{
+the output of a PBD sim,
+as can be checked by \link{check_pbd_sim_out}
+}
 \description{
 Checked and safer version of PBD::pbd_sim
 }

@@ -3,6 +3,7 @@
 #' Will \link{stop} if invalid, will do nothing otherwise
 #' @inheritParams default_params_doc
 #' @return nothing.
+#' @seealso Use \link{pbd_sim_checked} to run a PBD simulation
 #' @author Richel J.C. Bilderbeek
 #' @export
 check_pbd_sim_out <- function(

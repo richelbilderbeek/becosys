@@ -11,6 +11,7 @@
 #' @param nu the multiple allopatric speciation trigger rate
 #' @param pbd_params parameter set for the PBD model,
 #'   as can be created by \link{create_pbd_params}
+#' @param pbd_sim_out the result of a call to \link{pbd_sim_checked}
 #' @param q the single-lineage speciation probability at a triggered event
 #' @param quantile a quantile, a value between (and including) zero
 #'   to (and including) one.
@@ -35,6 +36,7 @@ default_params_doc <- function(
   mu,
   nu,
   pbd_params,
+  pbd_sim_out,
   q,
   quantile,
   scr,
