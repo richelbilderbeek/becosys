@@ -16,7 +16,6 @@ r_github_packages:
   - jimhester/lintr
   - KlausVigo/phangorn
   - MangoTheCat/goodpractice
-  - richelbilderbeek/ribir@develop
   - ropensci/spelling
   - rsetienne/PBD/PBD
 

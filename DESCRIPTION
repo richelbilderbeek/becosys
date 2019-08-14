@@ -16,7 +16,6 @@ Imports:
     mbd, 
     PBD (>= 1.5), 
     Rdpack,
-    ribir (>= 1.2),
     testit
 Suggests:
     ape,
