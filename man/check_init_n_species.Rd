@@ -6,6 +6,11 @@
 \usage{
 check_init_n_species(init_n_species)
 }
+\arguments{
+\item{init_n_species}{initial number of species at the
+start of simulating a phylogeny. Can be 1 (to start at the
+stem) or 2 (to start at the crown)}
+}
 \description{
 Will \link{stop} if not
 }

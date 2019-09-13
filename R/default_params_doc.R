@@ -6,6 +6,9 @@
 #' @param erg extinction rate of a good species
 #' @param eri extinction rate of an incipient species
 #' @param ext_rate per-lineage extinction rate
+#' @param init_n_species initial number of species at the
+#' start of simulating a phylogeny. Can be 1 (to start at the
+#' stem) or 2 (to start at the crown)
 #' @param lambda the sympatric speciation rate
 #' @param mbd_params parameter set for the MBD model,
 #'   as can be created by \link{create_mbd_params}
@@ -37,6 +40,7 @@ default_params_doc <- function(
   erg,
   eri,
   ext_rate,
+  init_n_species,
   lambda,
   mbd_params,
   mbd_params_selector,

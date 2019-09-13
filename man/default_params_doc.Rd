@@ -5,9 +5,10 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(conditioned_on, crown_age, erg, eri, ext_rate, lambda,
-  mbd_params, mbd_params_selector, mu, nu, pbd_params, pbd_params_selector,
-  q, quantile, scr, sir, sirg, siri, spec_rate, stem_age)
+default_params_doc(conditioned_on, crown_age, erg, eri, ext_rate,
+  init_n_species, lambda, mbd_params, mbd_params_selector, mu, nu,
+  pbd_params, pbd_params_selector, q, quantile, scr, sir, sirg, siri,
+  spec_rate, stem_age)
 }
 \arguments{
 \item{conditioned_on}{what the process is conditioned on.
@@ -20,6 +21,10 @@ This can be either 'nothing' or 'non_extinction'"}
 \item{eri}{extinction rate of an incipient species}
 
 \item{ext_rate}{per-lineage extinction rate}
+
+\item{init_n_species}{initial number of species at the
+start of simulating a phylogeny. Can be 1 (to start at the
+stem) or 2 (to start at the crown)}
 
 \item{lambda}{the sympatric speciation rate}
 

@@ -19,7 +19,7 @@ mbd_sim <- function(
   conditioned_on = "nothing"
 ) {
   check_mbd_params(mbd_params)
-  if (!is.na(crown_age)) check_crown_age(check_crown_age)
+  if (!is.na(crown_age)) check_crown_age(crown_age)
   if (!is.na(stem_age) && stem_age < 0.0) {
     stop("'stem_age' must be positive")
   }
