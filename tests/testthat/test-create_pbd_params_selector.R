@@ -33,7 +33,7 @@ test_that("abuse", {
       sirg = TRUE,
       siri = TRUE
     ),
-    "'erg' must be either TRUE or FALSE"
+    "erg is not of class 'logical'"
   )
   expect_error(
     create_pbd_params_selector(
@@ -43,7 +43,7 @@ test_that("abuse", {
       sirg = TRUE,
       siri = TRUE
     ),
-    "'eri' must be either TRUE or FALSE"
+    "eri is not of class 'logical'"
   )
   expect_error(
     create_pbd_params_selector(
@@ -53,7 +53,7 @@ test_that("abuse", {
       sirg = TRUE,
       siri = TRUE
     ),
-    "'scr' must be either TRUE or FALSE"
+    "scr is not of class 'logical'"
   )
   expect_error(
     create_pbd_params_selector(
@@ -63,7 +63,7 @@ test_that("abuse", {
       sirg = "nonsense",
       siri = TRUE
     ),
-    "'sirg' must be either TRUE or FALSE"
+    "sirg is not of class 'logical'"
   )
   expect_error(
     create_pbd_params_selector(
@@ -73,6 +73,6 @@ test_that("abuse", {
       sirg = TRUE,
       siri = "nonsense"
     ),
-    "'siri' must be either TRUE or FALSE"
+    "siri is not of class 'logical'"
   )
 })

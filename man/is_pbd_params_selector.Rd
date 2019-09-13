@@ -19,10 +19,11 @@ Determine if the supplied object in an PBD parameter selector,
 as can be created by \code{create_pbd_params_selector}
 }
 \examples{
-  s <- create_pbd_params_selector()
-  testthat::expect_true(is_pbd_params_selector(s))
+s <- create_pbd_params_selector()
 
-  testthat::expect_false(is_pbd_params_selector("nonsense"))
+library(testthat)
+expect_true(is_pbd_params_selector(s))
+expect_false(is_pbd_params_selector("nonsense"))
 }
 \author{
 Richel J.C. Bilderbeek

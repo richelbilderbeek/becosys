@@ -4,20 +4,19 @@
 #'   parameters selector
 #' @return TRUE if x is an PBD parameters selector
 #' @examples
-#'   s <- create_pbd_params_selector()
-#'   testthat::expect_true(is_pbd_params_selector(s))
+#' s <- create_pbd_params_selector()
 #'
-#'   testthat::expect_false(is_pbd_params_selector("nonsense"))
+#' library(testthat)
+#' expect_true(is_pbd_params_selector(s))
+#' expect_false(is_pbd_params_selector("nonsense"))
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_pbd_params_selector <- function(x) {
-  for (name in becosys::get_pbd_param_names()) {
-    if (!name %in% names(x)) return(FALSE)
-  }
-  if (!is.logical(x$erg)) return(FALSE)
-  if (!is.logical(x$eri)) return(FALSE)
-  if (!is.logical(x$scr)) return(FALSE)
-  if (!is.logical(x$sirg)) return(FALSE)
-  if (!is.logical(x$siri)) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    check_pbd_params_selector(x)
+    result <- TRUE
+  }, error = function(e) {} # nolint indeed ignore e
+  )
+  result
 }
