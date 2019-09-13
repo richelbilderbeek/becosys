@@ -37,21 +37,21 @@ test_that("abuse", {
       mbd_params = "nonsense",
       crown_age = crown_age
     ),
-    "'mbd_params' must be a valid MBD parameter set"
+    "mbd_params"
   )
   expect_error(
     mbd_sim(
       mbd_params = mbd_params,
       crown_age = -12.34
     ),
-    "'crown_age' must be positive"
+    "crown_age"
   )
   expect_error(
     mbd_sim(
       mbd_params = mbd_params,
       stem_age = -12.34
     ),
-    "'stem_age' must be positive"
+    "stem_age"
   )
   expect_error(
     mbd_sim(
