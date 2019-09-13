@@ -1,3 +1,9 @@
+#' Check if the input is a valid PBD parameter selector.
+#'
+#' Will \link{stop} if not
+#' @inheritParams default_params_doc
+#' @seealso use \link{is_pbd_params_selector} to measure
+#' if the input is a valid PBD parameter selector
 #' @export
 check_pbd_params_selector <- function(pbd_params_selector) {
   for (name in becosys::get_pbd_param_names()) {

@@ -6,7 +6,8 @@
 documentation.}
 \usage{
 default_params_doc(crown_age, erg, eri, ext_rate, lambda, mbd_params, mu,
-  nu, pbd_params, q, quantile, scr, sir, sirg, siri, spec_rate, stem_age)
+  nu, pbd_params, pbd_params_selector, q, quantile, scr, sir, sirg, siri,
+  spec_rate, stem_age)
 }
 \arguments{
 \item{crown_age}{the crown age, in time units ago}
@@ -28,6 +29,9 @@ as can be created by \link{create_mbd_params}}
 
 \item{pbd_params}{parameter set for the PBD model,
 as can be created by \link{create_pbd_params}}
+
+\item{pbd_params_selector}{a structure to select PBD parameters,
+as can be created by \link{create_pbd_params_selector}}
 
 \item{q}{the single-lineage speciation probability at a triggered event}
 
