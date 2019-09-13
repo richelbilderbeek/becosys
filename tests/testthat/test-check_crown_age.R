@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_crown_age(3.14))
+  expect_silent(check_crown_age(42))
+  expect_error(check_crown_age(-12.34))
+  expect_error(check_crown_age(""))
+  expect_error(check_crown_age("nonsense"))
+  expect_error(check_crown_age(NA))
+  expect_error(check_crown_age(NULL))
+  expect_error(check_crown_age(c(1, 2)))
+})

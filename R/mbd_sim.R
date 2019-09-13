@@ -18,12 +18,8 @@ mbd_sim <- function(
   stem_age = NA,
   conditioned_on = "nothing"
 ) {
-  if (!is_mbd_params(mbd_params)) {
-    stop("'mbd_params' must be a valid MBD parameter set")
-  }
-  if (!is.na(crown_age) && crown_age < 0.0) {
-    stop("'crown_age' must be positive")
-  }
+  check_mbd_params(mbd_params)
+  if (!is.na(crown_age)) check_crown_age(check_crown_age)
   if (!is.na(stem_age) && stem_age < 0.0) {
     stop("'stem_age' must be positive")
   }
@@ -33,9 +29,7 @@ mbd_sim <- function(
   if (!is.na(crown_age) && !is.na(stem_age)) {
     stop("'crown_age' or 'stem_age' must be set exclusively")
   }
-  if (!conditioned_on %in% c("nothing", "non_extinction")) {
-    stop("'conditioned_on' must be either 'nothing' or 'non_extinction'")
-  }
+  check_conditioned_on(conditioned_on)
   # Data transformation
   pars <- as.numeric(unlist(mbd_params))
   n_0 <- 1

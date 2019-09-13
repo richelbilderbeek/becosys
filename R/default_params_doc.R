@@ -1,5 +1,7 @@
 #' This function does nothing. It is intended to inherit is parameters'
 #' documentation.
+#' @param conditioned_on what the process is conditioned on.
+#' This can be either 'nothing' or 'non_extinction'"
 #' @param crown_age the crown age, in time units ago
 #' @param erg extinction rate of a good species
 #' @param eri extinction rate of an incipient species
@@ -30,6 +32,7 @@
 #'   \code{@noRd}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_params_doc <- function(
+  conditioned_on,
   crown_age,
   erg,
   eri,

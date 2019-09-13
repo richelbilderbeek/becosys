@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_init_n_species(1))
+  expect_silent(check_init_n_species(2))
+  expect_error(check_init_n_species(0))
+  expect_error(check_init_n_species(3))
+  expect_error(check_init_n_species("nonsense"))
+  expect_error(check_init_n_species(NULL))
+  expect_error(check_init_n_species(NA))
+  expect_error(check_init_n_species(c(1, 1)))
+})

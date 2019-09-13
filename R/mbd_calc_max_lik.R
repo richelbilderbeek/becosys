@@ -38,9 +38,9 @@ mbd_calc_max_lik <- function(
 ) {
   assertive::assert_is_numeric(branching_times)
   assertive::assert_all_are_positive(branching_times)
-  check_mbd_params(init_param_values)
-  check_mbd_params_selector(fixed_params)
-  check_mbd_params_selector(opt_params)
+  check_mbd_params(init_param_values) # nolint becosys function
+  check_mbd_params_selector(fixed_params) # nolint becosys function
+  check_mbd_params_selector(opt_params) # nolint becosys function
 
   # Check if all parameters are either exclusively estimated or fixed
   lambda_once <- xor(fixed_params$lambda, opt_params$lambda)
@@ -53,12 +53,8 @@ mbd_calc_max_lik <- function(
       "of the MBD parameters exactly once"
     )
   }
-  if (init_n_species != 1 && init_n_species != 2) {
-    stop("'init_n_species' must be 1 or 2")
-  }
-  if (!conditioned_on %in% c("nothing", "non_extinction")) {
-    stop("'conditioned_on' must be either 'nothing' or 'non_extinction'")
-  }
+  check_init_n_species(init_n_species)
+  check_conditioned_on(conditioned_on)
 
   # Convert data
   conditioned_on_code <- 0

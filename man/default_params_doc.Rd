@@ -5,11 +5,14 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(crown_age, erg, eri, ext_rate, lambda, mbd_params,
-  mbd_params_selector, mu, nu, pbd_params, pbd_params_selector, q,
-  quantile, scr, sir, sirg, siri, spec_rate, stem_age)
+default_params_doc(conditioned_on, crown_age, erg, eri, ext_rate, lambda,
+  mbd_params, mbd_params_selector, mu, nu, pbd_params, pbd_params_selector,
+  q, quantile, scr, sir, sirg, siri, spec_rate, stem_age)
 }
 \arguments{
+\item{conditioned_on}{what the process is conditioned on.
+This can be either 'nothing' or 'non_extinction'"}
+
 \item{crown_age}{the crown age, in time units ago}
 
 \item{erg}{extinction rate of a good species}

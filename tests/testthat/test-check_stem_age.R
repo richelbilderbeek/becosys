@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_stem_age(3.14))
+  expect_silent(check_stem_age(42))
+  expect_error(check_stem_age(-12.34))
+  expect_error(check_stem_age(""))
+  expect_error(check_stem_age("nonsense"))
+  expect_error(check_stem_age(NA))
+  expect_error(check_stem_age(NULL))
+  expect_error(check_stem_age(Inf))
+  expect_error(check_stem_age(c(1, 2)))
+})
