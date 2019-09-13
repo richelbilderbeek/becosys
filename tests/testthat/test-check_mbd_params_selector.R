@@ -1,6 +1,6 @@
 test_that("use", {
-  expect_silent(check_mbd_params_selector(x = create_mbd_params_selector()))
-  expect_error(check_mbd_params_selector(x = "nonsense"))
+  expect_silent(check_mbd_params_selector(create_mbd_params_selector()))
+  expect_error(check_mbd_params_selector("nonsense"))
   expect_error(check_mbd_params_selector(NULL))
   expect_error(check_mbd_params_selector(NA))
   expect_error(
