@@ -36,31 +36,10 @@ mbd_calc_max_lik <- function(
   init_n_species = 2,
   conditioned_on = "nothing"
 ) {
-  if (!is.numeric(branching_times)) {
-    stop("'branching_times' must be numeric")
-  }
-  if (!all(branching_times >= 0.0)) {
-    stop("All 'branching_times' must be positive")
-  }
-  if (!is_mbd_params(init_param_values)) {
-    stop(
-      "'init_param_values' must be an mbd_params, ",
-      "as created by 'create_mbd_params'"
-    )
-  }
-
-  if (!is_mbd_params_selector(fixed_params)) {
-    stop(
-      "'fixed_params' must be an MBD parameter selector, ",
-      "as created by 'create_mbd_params_selector'"
-    )
-  }
-  if (!is_mbd_params_selector(opt_params)) {
-    stop(
-      "'opt_params' must be an MBD parameter selector, ",
-      "as created by 'create_mbd_params_selector'"
-    )
-  }
+  assertive::assert_all_are_positive()
+  check_mbd_params(init_param_values)
+  check_mbd_params_selector(fixed_params)
+  check_mbd_params_selector(opt_params)
 
   # Check if all parameters are either exclusively estimated or fixed
   lambda_once <- xor(fixed_params$lambda, opt_params$lambda)

@@ -14,7 +14,7 @@
 is_pbd_params_selector <- function(x) {
   result <- FALSE
   tryCatch({
-    check_pbd_params_selector(x)
+    check_pbd_params_selector(x) # nolint becosys function
     result <- TRUE
   }, error = function(e) {} # nolint indeed ignore e
   )

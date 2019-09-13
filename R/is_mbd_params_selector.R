@@ -11,12 +11,11 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_mbd_params_selector <- function(x) {
-  for (name in get_mbd_param_names()) { # nolint internal function
-    if (!name %in% names(x)) return(FALSE)
-  }
-  if (!is.logical(x$lambda)) return(FALSE)
-  if (!is.logical(x$mu)) return(FALSE)
-  if (!is.logical(x$nu)) return(FALSE)
-  if (!is.logical(x$q)) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    check_mbd_params_selector(x) # nolint becosys function
+    result <- TRUE
+  }, error = function(e) {} # nolint indeed ignore e
+  )
+  result
 }

@@ -38,31 +38,14 @@ pbd_calc_max_lik <- function(
   n_missing_species = 0,
   conditioned_on = "nothing"
 ) {
-  if (!is.numeric(branching_times)) {
-    stop("'branching_times' must be numeric")
-  }
-  if (!all(branching_times >= 0.0)) {
-    stop("All 'branching_times' must be positive")
-  }
-  if (!is_pbd_params(init_param_values)) {
-    stop(
-      "'init_param_values' must be an pbd_params, ",
-      "as created by 'create_pbd_params'"
-    )
-  }
+  assertive::assert_all_are_positive(branching_times)
+  assertive::assert_is_a_number(init_n_species)
+  assertive::assert_is_a_number(n_missing_species)
 
-  if (!is_pbd_params_selector(fixed_params)) {
-    stop(
-      "'fixed_params' must be a PBD parameter selector, ",
-      "as created by 'create_pbd_params_selector'"
-    )
-  }
-  if (!is_pbd_params_selector(opt_params)) {
-    stop(
-      "'opt_params' must be a PBD parameter selector, ",
-      "as created by 'create_pbd_params_selector'"
-    )
-  }
+  check_pbd_params(init_param_values)
+  check_pbd_params_selector(fixed_params)
+  check_pbd_params_selector(opt_params)
+
   erg_once <- xor(fixed_params$erg, opt_params$erg)
   eri_once <- xor(fixed_params$eri, opt_params$eri)
   scr_once <- xor(fixed_params$scr, opt_params$scr)
