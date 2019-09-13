@@ -8,6 +8,11 @@
 check_mbd_params <- function(
   mbd_params
 ) {
+  if (!is.list(mbd_params)) {
+    stop(
+      "'", deparse(substitute(mbd_params)), "' must be a list"
+    )
+  }
   if (mbd_params$lambda < 0.0) {
     stop("'lambda' must be positive")
   }

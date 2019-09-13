@@ -11,7 +11,8 @@ check_mbd_params_selector <- function(mbd_params_selector) {
   for (name in get_mbd_param_names()) { # nolint internal function
     if (!name %in% names(mbd_params_selector)) {
       stop(
-        "'mbd_params_selector' is missing element '", name, "'"
+        "'", deparse(substitute(mbd_params_selector)), "' ",
+        "is missing element '", name, "'"
       )
     }
   }

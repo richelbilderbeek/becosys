@@ -7,6 +7,8 @@
 #' @param lambda the sympatric speciation rate
 #' @param mbd_params parameter set for the MBD model,
 #'   as can be created by \link{create_mbd_params}
+#' @param mbd_params_selector a structure to select MBD parameters,
+#'   as can be created by \link{create_mbd_params_selector}
 #' @param mu the extinction rate
 #' @param nu the multiple allopatric speciation trigger rate
 #' @param pbd_params parameter set for the PBD model,

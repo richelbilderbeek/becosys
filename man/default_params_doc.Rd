@@ -49,6 +49,9 @@ to (and including) one.}
 \item{spec_rate}{per-lineage speciation rate}
 
 \item{stem_age}{the stem age, in time units ago}
+
+\item{mbd_params_selector}{a structure to select MBD parameters,
+as can be created by \link{create_mbd_params_selector}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

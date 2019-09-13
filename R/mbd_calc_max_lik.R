@@ -36,6 +36,7 @@ mbd_calc_max_lik <- function(
   init_n_species = 2,
   conditioned_on = "nothing"
 ) {
+  assertive::assert_is_numeric(branching_times)
   assertive::assert_all_are_positive(branching_times)
   check_mbd_params(init_param_values)
   check_mbd_params_selector(fixed_params)

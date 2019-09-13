@@ -86,7 +86,7 @@ test_that("abuse", {
       fixed_params = fixed_params,
       opt_params = opt_params
     ),
-    "'branching_times' must be numeric"
+    "branching_times"
   )
 
   expect_error(
@@ -96,7 +96,7 @@ test_that("abuse", {
       fixed_params = fixed_params,
       opt_params = opt_params
     ),
-    "All 'branching_times' must be positive"
+    "branching_times"
   )
 
   expect_error(
@@ -106,10 +106,7 @@ test_that("abuse", {
       fixed_params = fixed_params,
       opt_params = opt_params
     ),
-    paste0(
-      "'init_param_values' must be an mbd_params, ",
-      "as created by 'create_mbd_params'"
-    )
+    "init_param_values"
   )
   expect_error(
     mbd_calc_max_lik(
@@ -118,9 +115,7 @@ test_that("abuse", {
       fixed_params = "nonsense",
       opt_params = opt_params
     ),
-    paste0("'fixed_params' must be an MBD parameter selector, ",
-      "as created by 'create_mbd_params_selector'"
-    )
+    "fixed_params"
   )
   expect_error(
     mbd_calc_max_lik(
@@ -129,9 +124,7 @@ test_that("abuse", {
       fixed_params = fixed_params,
       opt_params = "nonsense"
     ),
-    paste0("'opt_params' must be an MBD parameter selector, ",
-      "as created by 'create_mbd_params_selector'"
-    )
+    "opt_params"
   )
   expect_error(
     mbd_calc_max_lik(

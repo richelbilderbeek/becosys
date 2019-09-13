@@ -5,11 +5,11 @@
 \title{Determine if the supplied object in an MBD parameter selector,
 as can be created by \code{create_mbd_params_selector}}
 \usage{
-is_mbd_params_selector(x)
+is_mbd_params_selector(mbd_params_selector)
 }
 \arguments{
-\item{x}{the object to be determined if it is an MBD
-parameters selector}
+\item{mbd_params_selector}{a structure to select MBD parameters,
+as can be created by \link{create_mbd_params_selector}}
 }
 \value{
 TRUE if x is an MBD parameters selector
