@@ -3,16 +3,18 @@
 #' @inheritParams default_params_doc
 #' @return TRUE if x is an MBD parameters selector
 #' @examples
-#'   s <- create_mbd_params_selector()
-#'   testthat::expect_true(is_mbd_params_selector(s))
+#' library(testthat)
 #'
-#'   testthat::expect_false(is_mbd_params_selector("nonsense"))
+#' s <- create_mbd_params_selector()
+#'
+#' expect_true(is_mbd_params_selector(s))
+#' expect_false(is_mbd_params_selector("nonsense"))
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_mbd_params_selector <- function(mbd_params_selector) {
   result <- FALSE
   tryCatch({
-    check_mbd_params_selector(x) # nolint becosys function
+    check_mbd_params_selector(mbd_params_selector) # nolint becosys function
     result <- TRUE
   }, error = function(e) {} # nolint indeed ignore e
   )

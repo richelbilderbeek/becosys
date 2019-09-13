@@ -36,6 +36,7 @@ default_params_doc <- function(
   ext_rate,
   lambda,
   mbd_params,
+  mbd_params_selector,
   mu,
   nu,
   pbd_params,

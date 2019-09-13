@@ -5,9 +5,9 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(crown_age, erg, eri, ext_rate, lambda, mbd_params, mu,
-  nu, pbd_params, pbd_params_selector, q, quantile, scr, sir, sirg, siri,
-  spec_rate, stem_age)
+default_params_doc(crown_age, erg, eri, ext_rate, lambda, mbd_params,
+  mbd_params_selector, mu, nu, pbd_params, pbd_params_selector, q,
+  quantile, scr, sir, sirg, siri, spec_rate, stem_age)
 }
 \arguments{
 \item{crown_age}{the crown age, in time units ago}
@@ -22,6 +22,9 @@ default_params_doc(crown_age, erg, eri, ext_rate, lambda, mbd_params, mu,
 
 \item{mbd_params}{parameter set for the MBD model,
 as can be created by \link{create_mbd_params}}
+
+\item{mbd_params_selector}{a structure to select MBD parameters,
+as can be created by \link{create_mbd_params_selector}}
 
 \item{mu}{the extinction rate}
 
@@ -49,9 +52,6 @@ to (and including) one.}
 \item{spec_rate}{per-lineage speciation rate}
 
 \item{stem_age}{the stem age, in time units ago}
-
-\item{mbd_params_selector}{a structure to select MBD parameters,
-as can be created by \link{create_mbd_params_selector}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'
