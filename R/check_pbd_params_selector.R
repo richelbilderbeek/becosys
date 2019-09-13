@@ -9,7 +9,8 @@ check_pbd_params_selector <- function(pbd_params_selector) {
   for (name in becosys::get_pbd_param_names()) {
     if (!name %in% names(pbd_params_selector)) {
       stop(
-        "'pbd_params_selector' is missing element '", name, "'"
+        "'", deparse(substitute(pbd_params_selector)), "' ",
+        "is missing element '", name, "'"
       )
     }
   }

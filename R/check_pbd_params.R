@@ -8,6 +8,11 @@
 check_pbd_params <- function(
   pbd_params
 ) {
+  if (!is.list(pbd_params)) {
+    stop(
+      "'", deparse(substitute(pbd_params)), "' must be a list"
+    )
+  }
   if (pbd_params$erg < 0.0) {
     stop("'erg' must be positive")
   }
