@@ -1,6 +1,7 @@
 #' Check if the supplied object in an MBD parameter selector.
 #'
 #' Will link{stop} if not.
+#' @inheritParams default_params_doc
 #' @examples
 #' library(testthat)
 #' expect_silent(check_mbd_params_selector(create_mbd_params_selector()))

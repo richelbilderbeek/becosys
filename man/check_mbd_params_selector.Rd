@@ -6,6 +6,10 @@
 \usage{
 check_mbd_params_selector(mbd_params_selector)
 }
+\arguments{
+\item{mbd_params_selector}{a structure to select MBD parameters,
+as can be created by \link{create_mbd_params_selector}}
+}
 \description{
 Will link{stop} if not.
 }
