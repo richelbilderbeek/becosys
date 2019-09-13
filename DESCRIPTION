@@ -11,11 +11,12 @@ Description: This package offers a uniform interface for multiple
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: 
-  mbd, 
-  PBD, 
-  Rdpack,
-  testit
+Imports:
+    assertive,
+    mbd, 
+    PBD, 
+    Rdpack,
+    testit
 Suggests:
     ape,
     ggplot2,
