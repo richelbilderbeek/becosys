@@ -6,6 +6,5 @@ test_that("use", {
   expect_error(check_stem_age("nonsense"))
   expect_error(check_stem_age(NA))
   expect_error(check_stem_age(NULL))
-  expect_error(check_stem_age(Inf))
   expect_error(check_stem_age(c(1, 2)))
 })
