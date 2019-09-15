@@ -1,6 +1,7 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+dist: bionic
 sudo: false
 cache: packages
 
@@ -11,13 +12,13 @@ r_packages:
   - xml2
 
 r_github_packages:
+  - Giappo/mbd
   - jimhester/covr
   - jimhester/lintr
-  - Giappo/mbd
   - KlausVigo/phangorn
   - MangoTheCat/goodpractice
-  - richelbilderbeek/PBD/PBD
   - ropensci/spelling
+  - rsetienne/PBD/PBD
 
 before_install:
   - sudo add-apt-repository -y ppa:opencpu/imagemagick

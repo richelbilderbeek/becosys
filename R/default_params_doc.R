@@ -20,6 +20,7 @@
 #'   as can be created by \link{create_pbd_params}
 #' @param pbd_params_selector a structure to select PBD parameters,
 #'   as can be created by \link{create_pbd_params_selector}
+#' @param pbd_sim_out the result of a call to \link{pbd_sim_checked}
 #' @param q the single-lineage speciation probability at a triggered event
 #' @param quantile a quantile, a value between (and including) zero
 #'   to (and including) one.
@@ -48,6 +49,7 @@ default_params_doc <- function(
   nu,
   pbd_params,
   pbd_params_selector,
+  pbd_sim_out,
   q,
   quantile,
   scr,

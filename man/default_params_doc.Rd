@@ -7,8 +7,8 @@ documentation.}
 \usage{
 default_params_doc(conditioned_on, crown_age, erg, eri, ext_rate,
   init_n_species, lambda, mbd_params, mbd_params_selector, mu, nu,
-  pbd_params, pbd_params_selector, q, quantile, scr, sir, sirg, siri,
-  spec_rate, stem_age)
+  pbd_params, pbd_params_selector, pbd_sim_out, q, quantile, scr, sir,
+  sirg, siri, spec_rate, stem_age)
 }
 \arguments{
 \item{conditioned_on}{what the process is conditioned on.
@@ -43,6 +43,8 @@ as can be created by \link{create_pbd_params}}
 
 \item{pbd_params_selector}{a structure to select PBD parameters,
 as can be created by \link{create_pbd_params_selector}}
+
+\item{pbd_sim_out}{the result of a call to \link{pbd_sim_checked}}
 
 \item{q}{the single-lineage speciation probability at a triggered event}
 
