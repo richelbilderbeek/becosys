@@ -48,7 +48,7 @@ test_that("abuse", {
       siri = 1.0,
       crown_age = 1.0
     ),
-    "'erg' must be positive"
+    "erg"
   )
 
   expect_error(
@@ -60,7 +60,7 @@ test_that("abuse", {
       siri = 1.0,
       crown_age = 1.0
     ),
-    "'eri' must be positive"
+    "eri"
   )
 
   expect_error(
@@ -72,7 +72,7 @@ test_that("abuse", {
       siri = 1.0,
       crown_age = 1.0
     ),
-    "'scr' must be non-zero and positive"
+    "scr"
   )
 
   expect_error(
@@ -84,7 +84,7 @@ test_that("abuse", {
       siri = 1.0,
       crown_age = 1.0
     ),
-    "'sirg' must be positive"
+    "sirg"
   )
 
   expect_error(
@@ -96,7 +96,7 @@ test_that("abuse", {
       siri = -123, #Error
       crown_age = 1.0
     ),
-    "'siri' must be positive"
+    "siri"
   )
 
   expect_error(
