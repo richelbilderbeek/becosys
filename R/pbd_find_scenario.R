@@ -55,7 +55,8 @@ pbd_find_scenario <- function(
   testit::assert(max_n_subspecies >= 1)
   testit::assert(min_n_subspecies <= max_n_subspecies)
 
-  is_scenario <- get_pbd_scenario_function(sl)
+  is_scenario <- get_pbd_scenario_function(scenario)
+  print(is_scenario)
 
   if (scenario %in% c("expsl", "yltosl", "rstysl", "rltosl",
                       "rsts", "rltl", "sltl")) {
@@ -128,7 +129,7 @@ get_pbd_scenario_function <- function(scenario_description) {
     "sltl" = is_pbd_scenario_sltl
   )
   testit::assert(scenario_description %in% names(dictionary))
-  dictionary[scenario_description]
+  dictionary[scenario_description]$equal
 }
 
 #' Scenario equal
