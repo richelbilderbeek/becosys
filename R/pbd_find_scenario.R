@@ -101,50 +101,67 @@ pbd_find_scenario <- function(
     if (sum_youngest == sum_oldest) next
     if (sum_shortest == sum_longest) next
 
+
     if (scenario == "expected") {
-      # No unexpected things
-      if (sum_random < sum_youngest) next
-      if (sum_random > sum_oldest) next
-      if (sum_youngest > sum_oldest) next
-      testit::assert(sum_youngest < sum_oldest)
-      testit::assert(sum_youngest <= sum_random)
-      testit::assert(sum_random <= sum_oldest)
+      if (
+        !is_pbd_scenario_expected(
+          sum_youngest,
+          sum_oldest,
+          sum_random,
+          sum_shortest,
+          sum_longest
+        )
+      ) next
     } else if (scenario == "ylto") {
-      # Younger Less Than Oldest
-      if (sum_youngest < sum_oldest) next
-      testit::assert(sum_youngest > sum_oldest)
+      if (
+        !is_pbd_scenario_ylto(
+          sum_youngest,
+          sum_oldest,
+          sum_random,
+          sum_shortest,
+          sum_longest
+        )
+      ) next
     } else if (scenario == "rsty") {
-      # Random Shorter Than Youngest
-      if (sum_youngest > sum_oldest) next
-      if (sum_random >= sum_youngest) next
-      if (sum_random >= sum_oldest) next
-      testit::assert(sum_youngest < sum_oldest)
-      testit::assert(sum_random < sum_youngest)
-      testit::assert(sum_random < sum_oldest)
+      if (
+        !is_pbd_scenario_rsty(
+          sum_youngest,
+          sum_oldest,
+          sum_random,
+          sum_shortest,
+          sum_longest
+        )
+      ) next
     } else if (scenario == "rlto") {
-      if (sum_youngest > sum_oldest) next
-      if (sum_random <= sum_youngest) next
-      if (sum_random <= sum_oldest) next
-      testit::assert(sum_youngest < sum_oldest)
-      testit::assert(sum_random > sum_youngest)
-      testit::assert(sum_random > sum_oldest)
+      if (
+        !is_pbd_scenario_rlto(
+          sum_youngest,
+          sum_oldest,
+          sum_random,
+          sum_shortest,
+          sum_longest
+        )
+      ) next
     } else if (scenario == "expsl") {
-      if (sum_random < sum_youngest) next
-      if (sum_random > sum_oldest) next
-      if (sum_youngest > sum_oldest) next
-      if (sum_random < sum_shortest) next
-      if (sum_random > sum_longest) next
-      if (sum_shortest > sum_longest) next
-      testit::assert(sum_youngest < sum_oldest)
-      testit::assert(sum_youngest <= sum_random)
-      testit::assert(sum_random <= sum_oldest)
-      testit::assert(sum_shortest < sum_longest)
-      testit::assert(sum_shortest <= sum_random)
-      testit::assert(sum_random <= sum_longest)
+      if (
+        !is_pbd_scenario_expsl(
+          sum_youngest,
+          sum_oldest,
+          sum_random,
+          sum_shortest,
+          sum_longest
+        )
+      ) next
     } else if (scenario == "yltosl") {
-      # Younger Less Than Oldest
-      if (sum_youngest < sum_oldest) next
-      testit::assert(sum_youngest > sum_oldest)
+      if (
+        !is_pbd_scenario_yltosl(
+          sum_youngest,
+          sum_oldest,
+          sum_random,
+          sum_shortest,
+          sum_longest
+        )
+      ) next
     } else if (scenario == "rstysl") {
       # Random Shorter Than Youngest
       if (sum_youngest > sum_oldest) next
@@ -182,4 +199,200 @@ pbd_find_scenario <- function(
     # Found an example!
     return(out)
   }
+}
+
+
+#' Scenario equal
+#'  'equal' (branch length of youngest equals oldest equals random)
+#' @noRd
+is_pbd_scenario_equal <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+
+}
+
+#' Scenario expected
+#'  'expected',
+#' @noRd
+is_pbd_scenario_expected <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+  # No unexpected things
+  if (sum_random < sum_youngest) return(FALSE)
+  if (sum_random > sum_oldest) return(FALSE)
+  if (sum_youngest > sum_oldest) return(FALSE)
+  testit::assert(sum_youngest < sum_oldest)
+  testit::assert(sum_youngest <= sum_random)
+  testit::assert(sum_random <= sum_oldest)
+  TRUE
+}
+
+#' Scenario ylto
+#'  'ylto' (youngest longer than oldest)
+#' @noRd
+is_pbd_scenario_ylto <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+  # Younger Less Than Oldest
+  if (sum_youngest < sum_oldest) return(FALSE)
+  testit::assert(sum_youngest > sum_oldest)
+  TRUE
+}
+
+#' Scenario rsty
+#'  'rsty' (random shorter than youngest)
+#' @noRd
+is_pbd_scenario_rsty <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+  # Random Shorter Than Youngest
+  if (sum_youngest > sum_oldest) return(FALSE)
+  if (sum_random >= sum_youngest) return(FALSE)
+  if (sum_random >= sum_oldest) return(FALSE)
+  testit::assert(sum_youngest < sum_oldest)
+  testit::assert(sum_random < sum_youngest)
+  testit::assert(sum_random < sum_oldest)
+  TRUE
+}
+
+#' Scenario rlto
+#'  'rlto' (random longer than oldest)
+#' @noRd
+is_pbd_scenario_rlto <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+  if (sum_youngest > sum_oldest) return(FALSE)
+  if (sum_random <= sum_youngest) return(FALSE)
+  if (sum_random <= sum_oldest) return(FALSE)
+  testit::assert(sum_youngest < sum_oldest)
+  testit::assert(sum_random > sum_youngest)
+  testit::assert(sum_random > sum_oldest)
+  TRUE
+}
+
+#' Scenario expsl
+#'  'expsl' (expected, but also includes shortest and longest)
+#' @noRd
+is_pbd_scenario_expsl <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+  if (sum_random < sum_youngest) return(FALSE)
+  if (sum_random > sum_oldest) return(FALSE)
+  if (sum_youngest > sum_oldest) return(FALSE)
+  if (sum_random < sum_shortest) return(FALSE)
+  if (sum_random > sum_longest) return(FALSE)
+  if (sum_shortest > sum_longest) return(FALSE)
+  testit::assert(sum_youngest < sum_oldest)
+  testit::assert(sum_youngest <= sum_random)
+  testit::assert(sum_random <= sum_oldest)
+  testit::assert(sum_shortest < sum_longest)
+  testit::assert(sum_shortest <= sum_random)
+  testit::assert(sum_random <= sum_longest)
+  TRUE
+}
+
+#' Scenario yltosl
+#'  'yltosl' (ylto, but also includes shortest and longest)
+#' @noRd
+is_pbd_scenario_yltosl <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+  # Younger Less Than Oldest
+  if (sum_youngest < sum_oldest) return(FALSE)
+  testit::assert(sum_youngest > sum_oldest)
+  TRUE
+}
+
+#' Scenario rstysl
+#'  'rstysl' (rsty, but also includes shortest and longest)
+#' @noRd
+is_pbd_scenario_rstysl <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+
+}
+
+
+#' Scenario rltosl
+#'  'rltosl' (rlto, but also includes shortest and longest)
+#' @noRd
+is_pbd_scenario_rltosl <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+
+}
+
+#' Scenario rsts
+#'  'rsts' (random shorter than shortest)
+#' @noRd
+is_pbd_scenario_rsts <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+
+}
+
+#' Scenario rltl
+#'  'rltl' (random longer than longest)
+#' @noRd
+is_pbd_scenario_rltl <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+
+}
+
+#' Scenario sltl
+#'  'sltl' (shortest longer than longest)
+#' @noRd
+is_pbd_scenario_sltl <- function(
+  sum_youngest,
+  sum_oldest,
+  sum_random,
+  sum_shortest,
+  sum_longest
+) {
+
 }

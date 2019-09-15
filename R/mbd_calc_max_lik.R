@@ -53,8 +53,8 @@ mbd_calc_max_lik <- function(
       "of the MBD parameters exactly once"
     )
   }
-  check_init_n_species(init_n_species)
-  check_conditioned_on(conditioned_on)
+  check_init_n_species(init_n_species) # nolint becosys function
+  check_conditioned_on(conditioned_on) # nolint becosys function
 
   # Convert data
   conditioned_on_code <- 0

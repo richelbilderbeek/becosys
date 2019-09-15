@@ -43,9 +43,9 @@ pbd_calc_max_lik <- function(
   assertive::assert_is_a_number(init_n_species)
   assertive::assert_is_a_number(n_missing_species)
 
-  check_pbd_params(init_param_values)
-  check_pbd_params_selector(fixed_params)
-  check_pbd_params_selector(opt_params)
+  check_pbd_params(init_param_values) # nolint becosys function
+  check_pbd_params_selector(fixed_params) # nolint becosys function
+  check_pbd_params_selector(opt_params) # nolint becosys function
 
   erg_once <- xor(fixed_params$erg, opt_params$erg)
   eri_once <- xor(fixed_params$eri, opt_params$eri)
