@@ -55,6 +55,8 @@ pbd_find_scenario <- function(
   testit::assert(max_n_subspecies >= 1)
   testit::assert(min_n_subspecies <= max_n_subspecies)
 
+  is_scenario <- get_pbd_scenario_function(sl)
+
   if (scenario %in% c("expsl", "yltosl", "rstysl", "rltosl",
                       "rsts", "rltl", "sltl")) {
     add_shortest_and_longest <- TRUE
@@ -91,116 +93,43 @@ pbd_find_scenario <- function(
     sum_shortest <- sum(out$stree_shortest$edge.length)
     sum_longest <- sum(out$stree_longest$edge.length)
 
-    if (scenario == "equal") {
-      if (sum_youngest != sum_oldest) next
-      if (sum_youngest != sum_random) next
-      return(out)
-    }
-
-    # Only measure when sampling does give different branch lengths
-    if (sum_youngest == sum_oldest) next
-    if (sum_shortest == sum_longest) next
-
-
-    if (scenario == "expected") {
-      if (
-        !is_pbd_scenario_expected(
-          sum_youngest,
-          sum_oldest,
-          sum_random,
-          sum_shortest,
-          sum_longest
-        )
-      ) next
-    } else if (scenario == "ylto") {
-      if (
-        !is_pbd_scenario_ylto(
-          sum_youngest,
-          sum_oldest,
-          sum_random,
-          sum_shortest,
-          sum_longest
-        )
-      ) next
-    } else if (scenario == "rsty") {
-      if (
-        !is_pbd_scenario_rsty(
-          sum_youngest,
-          sum_oldest,
-          sum_random,
-          sum_shortest,
-          sum_longest
-        )
-      ) next
-    } else if (scenario == "rlto") {
-      if (
-        !is_pbd_scenario_rlto(
-          sum_youngest,
-          sum_oldest,
-          sum_random,
-          sum_shortest,
-          sum_longest
-        )
-      ) next
-    } else if (scenario == "expsl") {
-      if (
-        !is_pbd_scenario_expsl(
-          sum_youngest,
-          sum_oldest,
-          sum_random,
-          sum_shortest,
-          sum_longest
-        )
-      ) next
-    } else if (scenario == "yltosl") {
-      if (
-        !is_pbd_scenario_yltosl(
-          sum_youngest,
-          sum_oldest,
-          sum_random,
-          sum_shortest,
-          sum_longest
-        )
-      ) next
-    } else if (scenario == "rstysl") {
-      # Random Shorter Than Youngest
-      if (sum_youngest > sum_oldest) next
-      if (sum_random >= sum_youngest) next
-      if (sum_random >= sum_oldest) next
-      testit::assert(sum_youngest < sum_oldest)
-      testit::assert(sum_random < sum_youngest)
-      testit::assert(sum_random < sum_oldest)
-    } else if (scenario == "rltosl") {
-      if (sum_youngest > sum_oldest) next
-      if (sum_random <= sum_youngest) next
-      if (sum_random <= sum_oldest) next
-      testit::assert(sum_youngest < sum_oldest)
-      testit::assert(sum_random > sum_youngest)
-      testit::assert(sum_random > sum_oldest)
-    } else if (scenario == "rsts") {
-      if (sum_shortest > sum_longest) next
-      if (sum_random  >= sum_shortest) next
-      if (sum_random >= sum_longest) next
-      testit::assert(sum_shortest < sum_longest)
-      testit::assert(sum_random < sum_shortest)
-      testit::assert(sum_random < sum_longest)
-    } else if (scenario == "rltl") {
-      if (sum_shortest > sum_longest) next
-      if (sum_random <= sum_shortest) next
-      if (sum_random <= sum_longest) next
-      testit::assert(sum_shortest < sum_longest)
-      testit::assert(sum_random > sum_shortest)
-      testit::assert(sum_random > sum_longest)
-    } else if (scenario == "sltl") {
-      if (sum_shortest < sum_longest) next
-      testit::assert(sum_shortest > sum_longest)
-    }
+    if (
+      !is_scenario(
+        sum_youngest = sum_youngest,
+        sum_oldest = sum_oldest,
+        sum_random = sum_random,
+        sum_shortest = sum_shortest,
+        sum_longest = sum_longest
+      )
+    ) next
 
     # Found an example!
     return(out)
   }
 }
 
+#' Gets a function to determine if a scenario is true
+#' @param scenario_description the scenario description
+#' @noRd
+get_pbd_scenario_function <- function(scenario_description) {
+
+  dictionary <- list(
+    "equal" = is_pbd_scenario_equal,
+    "expected" = is_pbd_scenario_expected,
+    "ylto" = is_pbd_scenario_ylto,
+    "rsty" = is_pbd_scenario_rsty,
+    "rlto" = is_pbd_scenario_rlto,
+    "expsl" = is_pbd_scenario_expsl,
+    "yltosl" = is_pbd_scenario_yltosl,
+    "rstysl" = is_pbd_scenario_rstysl,
+    "rltosl" = is_pbd_scenario_rltosl,
+    "rsts" = is_pbd_scenario_rsts,
+    "rltl" = is_pbd_scenario_rltl,
+    "sltl" = is_pbd_scenario_sltl
+  )
+  testit::assert(scenario_description %in% names(dictionary))
+  dictionary[scenario_description]
+}
 
 #' Scenario equal
 #'  'equal' (branch length of youngest equals oldest equals random)
@@ -212,7 +141,9 @@ is_pbd_scenario_equal <- function(
   sum_shortest,
   sum_longest
 ) {
-
+  if (sum_youngest != sum_oldest) return(FALSE)
+  if (sum_youngest != sum_random) return(FALSE)
+  TRUE
 }
 
 #' Scenario expected
@@ -225,6 +156,10 @@ is_pbd_scenario_expected <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
+
   # No unexpected things
   if (sum_random < sum_youngest) return(FALSE)
   if (sum_random > sum_oldest) return(FALSE)
@@ -245,6 +180,10 @@ is_pbd_scenario_ylto <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
+
   # Younger Less Than Oldest
   if (sum_youngest < sum_oldest) return(FALSE)
   testit::assert(sum_youngest > sum_oldest)
@@ -261,6 +200,10 @@ is_pbd_scenario_rsty <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
+
   # Random Shorter Than Youngest
   if (sum_youngest > sum_oldest) return(FALSE)
   if (sum_random >= sum_youngest) return(FALSE)
@@ -281,6 +224,10 @@ is_pbd_scenario_rlto <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
+
   if (sum_youngest > sum_oldest) return(FALSE)
   if (sum_random <= sum_youngest) return(FALSE)
   if (sum_random <= sum_oldest) return(FALSE)
@@ -300,6 +247,10 @@ is_pbd_scenario_expsl <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
+
   if (sum_random < sum_youngest) return(FALSE)
   if (sum_random > sum_oldest) return(FALSE)
   if (sum_youngest > sum_oldest) return(FALSE)
@@ -325,6 +276,10 @@ is_pbd_scenario_yltosl <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
+
   # Younger Less Than Oldest
   if (sum_youngest < sum_oldest) return(FALSE)
   testit::assert(sum_youngest > sum_oldest)
@@ -341,7 +296,18 @@ is_pbd_scenario_rstysl <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
 
+  # Random Shorter Than Youngest
+  if (sum_youngest > sum_oldest) return(FALSE)
+  if (sum_random >= sum_youngest) return(FALSE)
+  if (sum_random >= sum_oldest) return(FALSE)
+  testit::assert(sum_youngest < sum_oldest)
+  testit::assert(sum_random < sum_youngest)
+  testit::assert(sum_random < sum_oldest)
+  TRUE
 }
 
 
@@ -355,7 +321,17 @@ is_pbd_scenario_rltosl <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
 
+  if (sum_youngest > sum_oldest) return(FALSE)
+  if (sum_random <= sum_youngest) return(FALSE)
+  if (sum_random <= sum_oldest) return(FALSE)
+  testit::assert(sum_youngest < sum_oldest)
+  testit::assert(sum_random > sum_youngest)
+  testit::assert(sum_random > sum_oldest)
+  TRUE
 }
 
 #' Scenario rsts
@@ -368,7 +344,17 @@ is_pbd_scenario_rsts <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
 
+  if (sum_shortest > sum_longest) return(FALSE)
+  if (sum_random  >= sum_shortest) return(FALSE)
+  if (sum_random >= sum_longest) return(FALSE)
+  testit::assert(sum_shortest < sum_longest)
+  testit::assert(sum_random < sum_shortest)
+  testit::assert(sum_random < sum_longest)
+  TRUE
 }
 
 #' Scenario rltl
@@ -381,7 +367,17 @@ is_pbd_scenario_rltl <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
 
+  if (sum_shortest > sum_longest) return(FALSE)
+  if (sum_random <= sum_shortest) return(FALSE)
+  if (sum_random <= sum_longest) return(FALSE)
+  testit::assert(sum_shortest < sum_longest)
+  testit::assert(sum_random > sum_shortest)
+  testit::assert(sum_random > sum_longest)
+  TRUE
 }
 
 #' Scenario sltl
@@ -394,5 +390,11 @@ is_pbd_scenario_sltl <- function(
   sum_shortest,
   sum_longest
 ) {
+  # Only measure when sampling does give different branch lengths
+  if (sum_youngest == sum_oldest) return(FALSE)
+  if (sum_shortest == sum_longest) return(FALSE)
 
+  if (sum_shortest < sum_longest) return(FALSE)
+  testit::assert(sum_shortest > sum_longest)
+  TRUE
 }
