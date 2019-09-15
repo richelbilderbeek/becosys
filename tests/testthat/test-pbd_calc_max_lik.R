@@ -85,7 +85,7 @@ test_that("abuse", {
     eri = 0.2,
     scr = 0.3,
     sirg = 0.4,
-    siri = 0.5
+    siri = 0.4
   )
   fixed_params <- create_pbd_params_selector(
     erg = TRUE, eri = TRUE, sirg = TRUE, siri = TRUE
@@ -170,7 +170,7 @@ test_that("abuse", {
       opt_params = opt_params,
       n_missing_species = -12345
     ),
-    "'n_missing_species' must be positive"
+    "n_missing_species"
   )
   expect_error(
     pbd_calc_max_lik(
@@ -178,8 +178,9 @@ test_that("abuse", {
       init_param_values = pbd_params,
       fixed_params = fixed_params,
       opt_params = opt_params,
+      n_missing_species = 0,
       conditioned_on = "nonsense"
     ),
-    "'conditioned_on' must be either 'nothing' or 'non_extinction'"
+    "conditioned_on"
   )
 })
