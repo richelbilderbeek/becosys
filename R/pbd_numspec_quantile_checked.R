@@ -12,18 +12,10 @@ pbd_numspec_quantile_checked <- function(
   crown_age = NULL,
   quantile
 ) {
-  if (erg < 0.0) {
-    stop("'erg' must be positive")
-  }
-  if (eri < 0.0) {
-    stop("'eri' must be positive")
-  }
-  if (sir < 0.0) {
-    stop("'sir' must be positive")
-  }
-  if (scr < 0.0) {
-    stop("'scr' must be positive")
-  }
+  assertive::assert_all_are_non_negative(erg)
+  assertive::assert_all_are_non_negative(eri)
+  assertive::assert_all_are_non_negative(scr)
+  assertive::assert_all_are_non_negative(sir)
   if (is.null(crown_age)) {
     if (is.null(stem_age)) {
       stop(

@@ -1,5 +1,3 @@
-context("pbd_numspec_quantile_checked")
-
 test_that("plot pbd_numspec_quantile", {
 
   sir <- 0.5
@@ -49,5 +47,4 @@ test_that("use", {
       quantile = quantile
     )
   )
-
 })

@@ -48,8 +48,8 @@ pbd_calc_max_lik <- function(
   check_pbd_params_selector(fixed_params) # nolint becosys function
   check_pbd_params_selector(opt_params) # nolint becosys function
   check_each_pbd_param_selected_once(fixed_params, opt_params) # nolint becosys function
-  check_init_n_species(init_n_species)
-  check_conditioned_on(conditioned_on)
+  check_init_n_species(init_n_species) # nolint becosys function
+  check_conditioned_on(conditioned_on) # nolint becosys function
   if (init_param_values$sirg != init_param_values$siri) {
     stop(
       "Can only optimize for equal speciation rates ",
