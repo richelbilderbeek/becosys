@@ -46,27 +46,9 @@ pbd_calc_max_lik <- function(
   check_pbd_params(init_param_values) # nolint becosys function
   check_pbd_params_selector(fixed_params) # nolint becosys function
   check_pbd_params_selector(opt_params) # nolint becosys function
-
-  erg_once <- xor(fixed_params$erg, opt_params$erg)
-  eri_once <- xor(fixed_params$eri, opt_params$eri)
-  scr_once <- xor(fixed_params$scr, opt_params$scr)
-  sirg_once <- xor(fixed_params$sirg, opt_params$sirg)
-  siri_once <- xor(fixed_params$siri, opt_params$siri)
-  if (!(erg_once && eri_once && scr_once && sirg_once && siri_once)) {
-    stop(
-      "'fixed_params' and 'opt_params' together must select each ",
-      "of the PBD parameters exactly once"
-    )
-  }
-  if (init_n_species != 1 && init_n_species != 2) {
-    stop("'init_n_species' must be 1 or 2")
-  }
-  if (n_missing_species < 0) {
-    stop("'n_missing_species' must be positive")
-  }
-  if (!conditioned_on %in% c("nothing", "non_extinction")) {
-    stop("'conditioned_on' must be either 'nothing' or 'non_extinction'")
-  }
+  check_each_pbd_param_selected_once(fixed_params, opt_params) # nolint becosys function
+  check_init_n_species(init_n_species)
+  check_conditioned_on(conditioned_on)
   if (init_param_values$sirg != init_param_values$siri) {
     stop(
       "Can only optimize for equal speciation rates ",

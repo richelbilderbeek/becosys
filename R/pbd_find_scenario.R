@@ -55,7 +55,7 @@ pbd_find_scenario <- function(
   testit::assert(max_n_subspecies >= 1)
   testit::assert(min_n_subspecies <= max_n_subspecies)
 
-  is_scenario <- get_pbd_scenario_function(scenario)
+  is_scenario <- get_pbd_scenario_function(scenario) # nolint becosys function
   print(is_scenario)
 
   if (scenario %in% c("expsl", "yltosl", "rstysl", "rltosl",
@@ -248,16 +248,17 @@ is_pbd_scenario_expsl <- function(
   sum_shortest,
   sum_longest
 ) {
-  # Only measure when sampling does give different branch lengths
-  if (sum_youngest == sum_oldest) return(FALSE)
-  if (sum_shortest == sum_longest) return(FALSE)
-
   if (sum_random < sum_youngest) return(FALSE)
   if (sum_random > sum_oldest) return(FALSE)
-  if (sum_youngest > sum_oldest) return(FALSE)
+  if (sum_youngest >= sum_oldest) return(FALSE)
   if (sum_random < sum_shortest) return(FALSE)
   if (sum_random > sum_longest) return(FALSE)
-  if (sum_shortest > sum_longest) return(FALSE)
+  if (sum_shortest >= sum_longest) return(FALSE)
+
+  # Only measure when sampling does give different branch lengths
+  testit::assert(sum_youngest != sum_oldest)
+  testit::assert(sum_shortest != sum_longest)
+
   testit::assert(sum_youngest < sum_oldest)
   testit::assert(sum_youngest <= sum_random)
   testit::assert(sum_random <= sum_oldest)
