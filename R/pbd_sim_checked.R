@@ -22,21 +22,11 @@ pbd_sim_checked <- function(
   max_n_taxa = Inf,
   add_shortest_and_longest = FALSE
 ) {
-  if (erg < 0.0) {
-    stop("'erg' must be positive")
-  }
-  if (eri < 0.0) {
-    stop("'eri' must be positive")
-  }
-  if (sirg < 0.0) {
-    stop("'sirg' must be positive")
-  }
-  if (siri < 0.0) {
-    stop("'siri' must be positive")
-  }
-  if (scr <= 0.0) {
-    stop("'scr' must be non-zero and positive")
-  }
+  assertive::assert_all_are_non_negative(erg)
+  assertive::assert_all_are_non_negative(eri)
+  assertive::assert_all_are_non_negative(scr)
+  assertive::assert_all_are_non_negative(sirg)
+  assertive::assert_all_are_non_negative(siri)
   if (is.null(crown_age)) {
     if (is.null(stem_age)) {
       stop(
