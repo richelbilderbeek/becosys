@@ -14,7 +14,7 @@
 is_mbd_params_selector <- function(mbd_params_selector) {
   result <- FALSE
   tryCatch({
-    check_mbd_params_selector(mbd_params_selector) # nolint becosys function
+    becosys::check_mbd_params_selector(mbd_params_selector)
     result <- TRUE
   }, error = function(e) {} # nolint indeed ignore e
   )

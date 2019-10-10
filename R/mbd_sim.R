@@ -18,8 +18,8 @@ mbd_sim <- function(
   stem_age = NA,
   conditioned_on = "nothing"
 ) {
-  check_mbd_params(mbd_params) # nolint becosys function
-  if (!is.na(crown_age)) check_crown_age(crown_age) # nolint becosys function
+  becosys::check_mbd_params(mbd_params)
+  if (!is.na(crown_age)) becosys::check_crown_age(crown_age)
   if (!is.na(stem_age) && stem_age < 0.0) {
     stop("'stem_age' must be positive")
   }
@@ -29,7 +29,7 @@ mbd_sim <- function(
   if (!is.na(crown_age) && !is.na(stem_age)) {
     stop("'crown_age' or 'stem_age' must be set exclusively")
   }
-  check_conditioned_on(conditioned_on) # nolint becosys function
+  becosys::check_conditioned_on(conditioned_on)
   # Data transformation
   pars <- as.numeric(unlist(mbd_params))
   n_0 <- 1

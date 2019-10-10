@@ -19,7 +19,7 @@ bco_pbd_sim <- function(
   if (!is_pbd_params(pbd_params)) {
     stop("'pbd_params' must be a valid PBD parameter set")
   }
-  check_pbd_params(pbd_params) # nolint becosys function
+  becosys::check_pbd_params(pbd_params)
   if (!is.null(crown_age) && crown_age < 0.0) {
     stop("'crown_age' must be positive")
   }

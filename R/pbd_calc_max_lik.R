@@ -44,12 +44,12 @@ pbd_calc_max_lik <- function(
   assertive::assert_is_a_number(n_missing_species)
   testit::assert(n_missing_species >= 0)
 
-  check_pbd_params(init_param_values) # nolint becosys function
-  check_pbd_params_selector(fixed_params) # nolint becosys function
-  check_pbd_params_selector(opt_params) # nolint becosys function
-  check_each_pbd_param_selected_once(fixed_params, opt_params) # nolint becosys function
-  check_init_n_species(init_n_species) # nolint becosys function
-  check_conditioned_on(conditioned_on) # nolint becosys function
+  becosys::check_pbd_params(init_param_values)
+  becosys::check_pbd_params_selector(fixed_params)
+  becosys::check_pbd_params_selector(opt_params)
+  becosys::check_each_pbd_param_selected_once(fixed_params, opt_params)
+  becosys::check_init_n_species(init_n_species)
+  becosys::check_conditioned_on(conditioned_on)
   if (init_param_values$sirg != init_param_values$siri) {
     stop(
       "Can only optimize for equal speciation rates ",

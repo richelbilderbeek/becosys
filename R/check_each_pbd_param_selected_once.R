@@ -9,8 +9,8 @@ check_each_pbd_param_selected_once <- function( # nolint long function name inde
   fixed_params,
   opt_params
 ) {
-  check_pbd_params_selector(fixed_params) # nolint becosys function
-  check_pbd_params_selector(opt_params) # nolint becosys function
+  becosys::check_pbd_params_selector(fixed_params)
+  becosys::check_pbd_params_selector(opt_params)
 
   erg_once <- xor(fixed_params$erg, opt_params$erg)
   eri_once <- xor(fixed_params$eri, opt_params$eri)

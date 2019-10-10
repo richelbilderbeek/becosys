@@ -55,7 +55,7 @@ pbd_find_scenario <- function(
   testit::assert(max_n_subspecies >= 1)
   testit::assert(min_n_subspecies <= max_n_subspecies)
 
-  is_scenario <- get_pbd_scenario_function(scenario) # nolint becosys function
+  is_scenario <- becosys::get_pbd_scenario_function(scenario)
 
   if (scenario %in% c("expsl", "yltosl", "rstysl", "rltosl",
                       "rsts", "rltl", "sltl")) {

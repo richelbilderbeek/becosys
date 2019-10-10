@@ -14,6 +14,6 @@ create_mbd_params <- function(
     nu = nu,
     q = q
   )
-  check_mbd_params(mbd_params) # nolint becosys function
+  becosys::check_mbd_params(mbd_params)
   mbd_params
 }
