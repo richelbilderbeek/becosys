@@ -155,7 +155,7 @@ pbd_numspec_median_checked <- function(
   scr,
   sir,
   crown_age
-){
+) {
   if (sir < 0.0) stop("'sir' must be positive")
   if (erg < 0.0) stop("'erg' must be positive")
   if (scr < 0.0) stop("'scr' must be positive")

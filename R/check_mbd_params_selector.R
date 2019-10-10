@@ -9,7 +9,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 check_mbd_params_selector <- function(mbd_params_selector) {
-  for (name in get_mbd_param_names()) { # nolint internal function
+  for (name in becosys::get_mbd_param_names()) {
     if (!name %in% names(mbd_params_selector)) {
       stop(
         "'", deparse(substitute(mbd_params_selector)), "' ",
