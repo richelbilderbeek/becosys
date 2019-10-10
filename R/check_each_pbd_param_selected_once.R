@@ -4,7 +4,7 @@
 #' Will \link{stop} if not
 #' @param fixed_params first \code{pbd_params_selector}
 #' @param opt_params second \code{pbd_params_selector}
-#' @noRd
+#' @export
 check_each_pbd_param_selected_once <- function( # nolint long function name indeed, which is fine for an internal function
   fixed_params,
   opt_params

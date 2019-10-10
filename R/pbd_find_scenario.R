@@ -110,7 +110,7 @@ pbd_find_scenario <- function(
 
 #' Gets a function to determine if a scenario is true
 #' @param scenario_description the scenario description
-#' @noRd
+#' @export
 get_pbd_scenario_function <- function(scenario_description) {
 
   dictionary <- list(
