@@ -47,14 +47,14 @@ test_that("compare style", {
 
 test_that("can estimate BD trees", {
 
+  skip("Error upstream, in mbd. Issue 4, Issue #4")
   # Simulate a BD tree
   set.seed(12)
-  #lambda <- 0.3
-  #mu <- 0.1
-  #nu <- 0.0
-  #q <- 0.0
-  mbd_params <- create_mbd_params(lambda = 0.3, mu = 0.1, nu = 0.0, q = 0.0)
-  #mbd_params <- create_mbd_params(lambda = lambda, mu = mu, nu = nu, q = q)
+  lambda <- 0.3
+  mu <- 0.1
+  nu <- 0.0
+  q <- 0.0
+  mbd_params <- create_mbd_params(lambda = lambda, mu = mu, nu = nu, q = q)
   mbd_phylo <- mbd_sim(
     mbd_params = mbd_params,
     crown_age = 2,
