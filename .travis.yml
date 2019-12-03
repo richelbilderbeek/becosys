@@ -1,15 +1,6 @@
-# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
 language: R
 dist: bionic
-sudo: false
 cache: packages
-
-r_packages:
-  - devtools
-  - ggplot2
-  - hunspell
-  - xml2
 
 r_github_packages:
   - Giappo/mbd
