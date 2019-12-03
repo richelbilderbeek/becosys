@@ -15,7 +15,6 @@ r_github_packages:
   - Giappo/mbd
   - jimhester/covr
   - jimhester/lintr
-  - KlausVigo/phangorn
   - MangoTheCat/goodpractice
   - ropensci/spelling
   - rsetienne/PBD/PBD
