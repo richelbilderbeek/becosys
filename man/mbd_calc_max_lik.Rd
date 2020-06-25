@@ -4,8 +4,14 @@
 \alias{mbd_calc_max_lik}
 \title{Do an MBD maximum likelihood estimate.}
 \usage{
-mbd_calc_max_lik(branching_times, init_param_values, fixed_params,
-  opt_params, init_n_species = 2, conditioned_on = "nothing")
+mbd_calc_max_lik(
+  branching_times,
+  init_param_values,
+  fixed_params,
+  opt_params,
+  init_n_species = 2,
+  conditioned_on = "nothing"
+)
 }
 \arguments{
 \item{branching_times}{the branching times of the phylogeny}

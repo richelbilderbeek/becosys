@@ -4,8 +4,12 @@
 \alias{bco_pbd_sim}
 \title{Higher-level interface to \link{pbd_sim}}
 \usage{
-bco_pbd_sim(pbd_params, crown_age = NULL, stem_age = NULL,
-  add_shortest_and_longest = FALSE)
+bco_pbd_sim(
+  pbd_params,
+  crown_age = NULL,
+  stem_age = NULL,
+  add_shortest_and_longest = FALSE
+)
 }
 \arguments{
 \item{pbd_params}{PBD parameters,

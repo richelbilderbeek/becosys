@@ -4,8 +4,7 @@
 \alias{mbd_sim}
 \title{More intuitive interface of \link[mbd]{mbd_sim}}
 \usage{
-mbd_sim(mbd_params, crown_age = NA, stem_age = NA,
-  conditioned_on = "nothing")
+mbd_sim(mbd_params, crown_age = NA, stem_age = NA, conditioned_on = "nothing")
 }
 \arguments{
 \item{mbd_params}{MBD parameters,

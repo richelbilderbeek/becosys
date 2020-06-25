@@ -4,8 +4,15 @@
 \alias{pbd_numspec_quantile_checked}
 \title{Checked version of \code{\link[PBD]{pbd_numspec_quantile}}}
 \usage{
-pbd_numspec_quantile_checked(erg, eri, scr, sir, stem_age = NULL,
-  crown_age = NULL, quantile)
+pbd_numspec_quantile_checked(
+  erg,
+  eri,
+  scr,
+  sir,
+  stem_age = NULL,
+  crown_age = NULL,
+  quantile
+)
 }
 \arguments{
 \item{erg}{extinction rate of a good species}

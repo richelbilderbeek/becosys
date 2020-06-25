@@ -4,8 +4,12 @@
 \alias{bco_bd_sim}
 \title{Conformized name of \link{bd_sim}}
 \usage{
-bco_bd_sim(bd_params, crown_age = NA, stem_age = NA,
-  conditioned_on = "nothing")
+bco_bd_sim(
+  bd_params,
+  crown_age = NA,
+  stem_age = NA,
+  conditioned_on = "nothing"
+)
 }
 \arguments{
 \item{bd_params}{BD parameters,

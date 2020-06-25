@@ -4,8 +4,13 @@
 \alias{create_pbd_params_selector}
 \title{Create a PBD parameter selector}
 \usage{
-create_pbd_params_selector(erg = FALSE, eri = FALSE, scr = FALSE,
-  sirg = FALSE, siri = FALSE)
+create_pbd_params_selector(
+  erg = FALSE,
+  eri = FALSE,
+  scr = FALSE,
+  sirg = FALSE,
+  siri = FALSE
+)
 }
 \arguments{
 \item{erg}{extinction rate of a good species}

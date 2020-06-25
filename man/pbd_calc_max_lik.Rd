@@ -4,9 +4,15 @@
 \alias{pbd_calc_max_lik}
 \title{Do an PBD maximum likelihood estimate.}
 \usage{
-pbd_calc_max_lik(branching_times, init_param_values, fixed_params,
-  opt_params, init_n_species = 2, n_missing_species = 0,
-  conditioned_on = "nothing")
+pbd_calc_max_lik(
+  branching_times,
+  init_param_values,
+  fixed_params,
+  opt_params,
+  init_n_species = 2,
+  n_missing_species = 0,
+  conditioned_on = "nothing"
+)
 }
 \arguments{
 \item{branching_times}{the branching times of the phylogeny}

@@ -5,10 +5,30 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(conditioned_on, crown_age, erg, eri, ext_rate,
-  init_n_species, lambda, mbd_params, mbd_params_selector, mu, nu,
-  pbd_params, pbd_params_selector, pbd_sim_out, q, quantile, scr, sir,
-  sirg, siri, spec_rate, stem_age)
+default_params_doc(
+  conditioned_on,
+  crown_age,
+  erg,
+  eri,
+  ext_rate,
+  init_n_species,
+  lambda,
+  mbd_params,
+  mbd_params_selector,
+  mu,
+  nu,
+  pbd_params,
+  pbd_params_selector,
+  pbd_sim_out,
+  q,
+  quantile,
+  scr,
+  sir,
+  sirg,
+  siri,
+  spec_rate,
+  stem_age
+)
 }
 \arguments{
 \item{conditioned_on}{what the process is conditioned on.

@@ -4,9 +4,20 @@
 \alias{pbd_find_scenario}
 \title{Create an example scenario}
 \usage{
-pbd_find_scenario(scr, sirg, siri, scenario, erg = 0, eri = 0,
-  crown_age = 1, min_n_species = 1, max_n_species = 10000,
-  min_n_subspecies = 2, max_n_subspecies = 10000, rng_seed = 42)
+pbd_find_scenario(
+  scr,
+  sirg,
+  siri,
+  scenario,
+  erg = 0,
+  eri = 0,
+  crown_age = 1,
+  min_n_species = 1,
+  max_n_species = 10000,
+  min_n_subspecies = 2,
+  max_n_subspecies = 10000,
+  rng_seed = 42
+)
 }
 \arguments{
 \item{scr}{Speciation Completion Rate}

@@ -4,8 +4,7 @@
 \alias{bd_sim}
 \title{Simulate a constant-rate birth-death process.}
 \usage{
-bd_sim(bd_params, crown_age = NA, stem_age = NA,
-  conditioned_on = "nothing")
+bd_sim(bd_params, crown_age = NA, stem_age = NA, conditioned_on = "nothing")
 }
 \arguments{
 \item{bd_params}{BD parameters,

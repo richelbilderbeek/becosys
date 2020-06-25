@@ -4,8 +4,7 @@
 \alias{create_mbd_params_selector}
 \title{Create an MBD parameter selector}
 \usage{
-create_mbd_params_selector(lambda = FALSE, mu = FALSE, nu = FALSE,
-  q = FALSE)
+create_mbd_params_selector(lambda = FALSE, mu = FALSE, nu = FALSE, q = FALSE)
 }
 \arguments{
 \item{lambda}{the sympatric speciation rate}
