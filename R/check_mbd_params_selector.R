@@ -3,8 +3,7 @@
 #' Will link{stop} if not.
 #' @inheritParams default_params_doc
 #' @examples
-#' expect_silent(check_mbd_params_selector(create_mbd_params_selector()))
-#' expect_error(check_mbd_params_selector("nonsense"))
+#' check_mbd_params_selector(create_mbd_params_selector())
 #' @author Richel J.C. Bilderbeek
 #' @export
 check_mbd_params_selector <- function(mbd_params_selector) {
