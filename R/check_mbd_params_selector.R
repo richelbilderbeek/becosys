@@ -3,7 +3,6 @@
 #' Will link{stop} if not.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
 #' expect_silent(check_mbd_params_selector(create_mbd_params_selector()))
 #' expect_error(check_mbd_params_selector("nonsense"))
 #' @author Richel J.C. Bilderbeek

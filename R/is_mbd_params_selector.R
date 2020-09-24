@@ -3,7 +3,6 @@
 #' @inheritParams default_params_doc
 #' @return TRUE if x is an MBD parameters selector
 #' @examples
-#' library(testthat)
 #'
 #' s <- create_mbd_params_selector()
 #'

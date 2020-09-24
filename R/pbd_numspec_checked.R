@@ -15,33 +15,30 @@
 #'   \code{\link{pbd_numspec_median_checked}} calculates the median
 #'   number of species.
 #' @examples
-#'   n <- pbd_numspec_mean_checked(
-#'     ergs = 0.1,
-#'     eris = 0.2,
-#'     scrs = 0.3,
-#'     sirs = 0.4,
-#'     crown_ages = 0.5
-#'   )
-#'   testthat::expect_equal(n, 1.029111871)
+#' pbd_numspec_mean_checked(
+#'   ergs = 0.1,
+#'   eris = 0.2,
+#'   scrs = 0.3,
+#'   sirs = 0.4,
+#'   crown_ages = 0.5
+#' )
 #'
-#'   n <- pbd_numspec_mean_checked(
-#'     ergs = 0.2,
-#'     eris = 0.4,
-#'     scrs = 0.6,
-#'     sirs = 0.8,
-#'     crown_ages = 1.0
-#'   )
-#'   testthat::expect_equal(n, 1.440746567)
+#' pbd_numspec_mean_checked(
+#'   ergs = 0.2,
+#'   eris = 0.4,
+#'   scrs = 0.6,
+#'   sirs = 0.8,
+#'   crown_ages = 1.0
+#' )
 #'
-#'   # Vectorized use
-#'   ns <- pbd_numspec_mean_checked(
-#'     ergs = c(0.1, 0.2),
-#'     eris = c(0.2, 0.4),
-#'     scrs = c(0.3, 0.6),
-#'     sirs = c(0.4, 0.8),
-#'     crown_ages = c(0.5, 1.0)
-#'   )
-#'   testthat::expect_equal(ns, c(1.029111871, 1.440746567))
+#' # Vectorized use
+#' pbd_numspec_mean_checked(
+#'   ergs = c(0.1, 0.2),
+#'   eris = c(0.2, 0.4),
+#'   scrs = c(0.3, 0.6),
+#'   sirs = c(0.4, 0.8),
+#'   crown_ages = c(0.5, 1.0)
+#' )
 #' @author Richel J.C. Bilderbeek
 #' @export
 pbd_numspec_mean_checked <- function(
@@ -96,15 +93,14 @@ pbd_numspec_mean_checked <- function(
 #'   \code{\link{pbd_numspec_median_checked}} calculates the median
 #'   number of species.
 #' @examples
-#'  mean_n_species <- pbd_numspec_mean_checked_impl(
+#'  # 1.046121595 mean number of species
+#'  pbd_numspec_mean_checked_impl(
 #'    erg = 0.12,
 #'    eri = 0.23,
 #'    scr = 0.34,
 #'    sir = 0.45,
 #'    crown_age = 0.56
 #'  )
-#'  expected_mean_n_species <- 1.046121595
-#'  testthat::expect_equal(mean_n_species, expected_mean_n_species)
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 pbd_numspec_mean_checked_impl <- function(
@@ -138,15 +134,14 @@ pbd_numspec_mean_checked_impl <- function(
 #'   \code{\link{pbd_numspec_mean_checked}} calculates the
 #'   mean number of species.
 #' @examples
-#'   median_n_species <- pbd_numspec_median_checked(
-#'     erg = 1.2,
-#'     eri = 2.3,
-#'     scr = 3.4,
-#'     sir = 4.5,
-#'     crown_age = 6.7
-#'   )
-#'   median_n_species_expected <- 99408712
-#'   testthat::expect_equal(median_n_species, median_n_species_expected)
+#' # Median number of species: 99408712
+#' pbd_numspec_median_checked(
+#'   erg = 1.2,
+#'   eri = 2.3,
+#'   scr = 3.4,
+#'   sir = 4.5,
+#'   crown_age = 6.7
+#' )
 #' @author Richel J.C. Bilderbeek
 #' @export
 pbd_numspec_median_checked <- function(
