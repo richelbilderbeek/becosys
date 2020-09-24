@@ -6,8 +6,8 @@
 #'
 #' s <- create_mbd_params_selector()
 #'
-#' expect_true(is_mbd_params_selector(s))
-#' expect_false(is_mbd_params_selector("nonsense"))
+#' is_mbd_params_selector(s))
+#' is_mbd_params_selector("nonsense"))
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_mbd_params_selector <- function(mbd_params_selector) {

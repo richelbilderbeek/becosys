@@ -6,8 +6,8 @@
 #' @examples
 #' s <- create_pbd_params_selector()
 #'
-#' expect_true(is_pbd_params_selector(s))
-#' expect_false(is_pbd_params_selector("nonsense"))
+#' is_pbd_params_selector(s))
+#' is_pbd_params_selector("nonsense"))
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_pbd_params_selector <- function(x) {
