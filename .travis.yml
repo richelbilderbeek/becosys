@@ -12,8 +12,6 @@ r_github_packages:
   - rsetienne/PBD/PBD
 
 before_install:
-  #- sudo add-apt-repository -y ppa:opencpu/imagemagick
-  #- sudo apt-get update
   - sudo apt-get install -y libmagick++-dev
 
 before_script:
@@ -27,9 +25,9 @@ after_success:
   - travis_wait 30 Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
 after_failure:
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
