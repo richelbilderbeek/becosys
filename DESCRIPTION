@@ -24,6 +24,6 @@ Suggests:
     testthat (>= 2.1.0)
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
-URL: https://github.com/richelbilderbeek/becosys
+URL: https://github.com/richelbilderbeek/becosys/
 BugReports: https://github.com/richelbilderbeek/becosys/issues
 RdMacros: Rdpack
